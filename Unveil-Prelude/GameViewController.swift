@@ -10,9 +10,12 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
@@ -33,7 +36,7 @@ class GameViewController: UIViewController {
                     view.presentScene(sceneNode)
                     
                     view.ignoresSiblingOrder = true
-                    
+                    view.showsPhysics = true
                     view.showsFPS = true
                     view.showsNodeCount = true
                 }

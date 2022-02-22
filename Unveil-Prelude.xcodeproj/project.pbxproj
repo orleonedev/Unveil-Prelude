@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5115DA6627BF7F1C00549878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115DA6527BF7F1C00549878 /* AppDelegate.swift */; };
-		5115DA6827BF7F1C00549878 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5115DA6727BF7F1C00549878 /* GameScene.sks */; };
 		5115DA6A27BF7F1C00549878 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5115DA6927BF7F1C00549878 /* Actions.sks */; };
-		5115DA6C27BF7F1C00549878 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115DA6B27BF7F1C00549878 /* GameScene.swift */; };
 		5115DA6E27BF7F1C00549878 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115DA6D27BF7F1C00549878 /* GameViewController.swift */; };
 		5115DA7127BF7F1C00549878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5115DA6F27BF7F1C00549878 /* Main.storyboard */; };
 		5115DA7327BF7F1D00549878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5115DA7227BF7F1D00549878 /* Assets.xcassets */; };
@@ -27,14 +25,15 @@
 		5115DA8F27BFAA3A00549878 /* SKTileMapNode+Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115DA8E27BFAA3A00549878 /* SKTileMapNode+Physics.swift */; };
 		5115DA9127BFB29000549878 /* InteractionButton.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5115DA9027BFB29000549878 /* InteractionButton.sks */; };
 		5115DA9327BFB2B600549878 /* Controller.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5115DA9227BFB2B600549878 /* Controller.sks */; };
+		518C490D27C52D9600A71680 /* GameStateActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C490C27C52D9600A71680 /* GameStateActive.swift */; };
+		518C490F27C52DA600A71680 /* GameStateDialogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C490E27C52DA600A71680 /* GameStateDialogue.swift */; };
+		518C491127C52DBD00A71680 /* GameStateMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C491027C52DBD00A71680 /* GameStateMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5115DA6227BF7F1C00549878 /* Unveil-Prelude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unveil-Prelude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5115DA6527BF7F1C00549878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5115DA6727BF7F1C00549878 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		5115DA6927BF7F1C00549878 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		5115DA6B27BF7F1C00549878 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		5115DA6D27BF7F1C00549878 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		5115DA7027BF7F1C00549878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5115DA7227BF7F1D00549878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +50,9 @@
 		5115DA8E27BFAA3A00549878 /* SKTileMapNode+Physics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKTileMapNode+Physics.swift"; sourceTree = "<group>"; };
 		5115DA9027BFB29000549878 /* InteractionButton.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = InteractionButton.sks; sourceTree = "<group>"; };
 		5115DA9227BFB2B600549878 /* Controller.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Controller.sks; sourceTree = "<group>"; };
+		518C490C27C52D9600A71680 /* GameStateActive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateActive.swift; sourceTree = "<group>"; };
+		518C490E27C52DA600A71680 /* GameStateDialogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateDialogue.swift; sourceTree = "<group>"; };
+		518C491027C52DBD00A71680 /* GameStateMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,28 +85,37 @@
 		5115DA6427BF7F1C00549878 /* Unveil-Prelude */ = {
 			isa = PBXGroup;
 			children = (
+				518C490B27C52D7200A71680 /* States */,
 				5115DA6527BF7F1C00549878 /* AppDelegate.swift */,
-				5115DA6727BF7F1C00549878 /* GameScene.sks */,
-				5115DA6927BF7F1C00549878 /* Actions.sks */,
-				5115DA6B27BF7F1C00549878 /* GameScene.swift */,
 				5115DA6D27BF7F1C00549878 /* GameViewController.swift */,
 				5115DA6F27BF7F1C00549878 /* Main.storyboard */,
 				5115DA7227BF7F1D00549878 /* Assets.xcassets */,
 				5115DA8A27BF9F7B00549878 /* MyTileSet.sks */,
 				5115DA7427BF7F1D00549878 /* LaunchScreen.storyboard */,
 				5115DA7C27BF8D7200549878 /* DemoLaunchScene.swift */,
-				5115DA7E27BF8DEB00549878 /* DemoLaunchScene.sks */,
-				5115DA8027BF8EC800549878 /* MainMenuScene.sks */,
 				5115DA8227BF8F7F00549878 /* MainMenuScene.swift */,
 				5115DA8427BF9A0D00549878 /* Player.swift */,
 				5115DA8627BF9CC100549878 /* SKScene+ViewProperties.swift */,
-				5115DA8827BF9EED00549878 /* LakeDelightScene.sks */,
 				5115DA8C27BFA9F500549878 /* LakeDelightScene.swift */,
 				5115DA8E27BFAA3A00549878 /* SKTileMapNode+Physics.swift */,
+				5115DA6927BF7F1C00549878 /* Actions.sks */,
+				5115DA7E27BF8DEB00549878 /* DemoLaunchScene.sks */,
+				5115DA8027BF8EC800549878 /* MainMenuScene.sks */,
+				5115DA8827BF9EED00549878 /* LakeDelightScene.sks */,
 				5115DA9027BFB29000549878 /* InteractionButton.sks */,
 				5115DA9227BFB2B600549878 /* Controller.sks */,
 			);
 			path = "Unveil-Prelude";
+			sourceTree = "<group>";
+		};
+		518C490B27C52D7200A71680 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				518C490C27C52D9600A71680 /* GameStateActive.swift */,
+				518C490E27C52DA600A71680 /* GameStateDialogue.swift */,
+				518C491027C52DBD00A71680 /* GameStateMenu.swift */,
+			);
+			path = States;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,7 +178,6 @@
 			files = (
 				5115DA7127BF7F1C00549878 /* Main.storyboard in Resources */,
 				5115DA8127BF8EC800549878 /* MainMenuScene.sks in Resources */,
-				5115DA6827BF7F1C00549878 /* GameScene.sks in Resources */,
 				5115DA9327BFB2B600549878 /* Controller.sks in Resources */,
 				5115DA7F27BF8DEB00549878 /* DemoLaunchScene.sks in Resources */,
 				5115DA9127BFB29000549878 /* InteractionButton.sks in Resources */,
@@ -188,11 +198,13 @@
 			files = (
 				5115DA8327BF8F7F00549878 /* MainMenuScene.swift in Sources */,
 				5115DA8F27BFAA3A00549878 /* SKTileMapNode+Physics.swift in Sources */,
-				5115DA6C27BF7F1C00549878 /* GameScene.swift in Sources */,
 				5115DA6E27BF7F1C00549878 /* GameViewController.swift in Sources */,
 				5115DA8727BF9CC100549878 /* SKScene+ViewProperties.swift in Sources */,
 				5115DA7D27BF8D7200549878 /* DemoLaunchScene.swift in Sources */,
+				518C491127C52DBD00A71680 /* GameStateMenu.swift in Sources */,
 				5115DA8D27BFA9F500549878 /* LakeDelightScene.swift in Sources */,
+				518C490D27C52D9600A71680 /* GameStateActive.swift in Sources */,
+				518C490F27C52DA600A71680 /* GameStateDialogue.swift in Sources */,
 				5115DA8527BF9A0D00549878 /* Player.swift in Sources */,
 				5115DA6627BF7F1C00549878 /* AppDelegate.swift in Sources */,
 			);

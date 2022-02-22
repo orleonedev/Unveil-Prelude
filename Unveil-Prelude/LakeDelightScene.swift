@@ -18,6 +18,15 @@ class LakeDelightScene: SKScene {
     private var player: Player?
     
     
+    var GameStateMachine: GKStateMachine?
+    
+    let activeState = GameStateActive()
+    let dialogueState = GameStateDialogue()
+    let menuState = GameStateMenu()
+    
+    
+    
+    
     let margin: CGFloat = 20.0
     
     override func sceneDidLoad() {
@@ -25,6 +34,11 @@ class LakeDelightScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        
+        GameStateMachine = GKStateMachine(states: [activeState,dialogueState,menuState])
+        GameStateMachine?.enter(GameStateActive.self)
+        
+        
         player = childNode(withName: "player") as? Player
         player?.move(.stop)
         
@@ -34,8 +48,8 @@ class LakeDelightScene: SKScene {
         let grassMapNode = childNode(withName: "GrassMapNode") as? SKTileMapNode
         grassMapNode?.setupEdgeLoop()
         
-        let wallMapNode = childNode(withName: "WallMapNode") as? SKTileMapNode
-        wallMapNode?.setupMapPhysics()
+        let lakeMapNode = childNode(withName: "LakeMapNode") as? SKTileMapNode
+        lakeMapNode?.setupMapPhysics()
     }
     
     func setupCamera() {
