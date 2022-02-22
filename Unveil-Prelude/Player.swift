@@ -22,11 +22,14 @@ enum Direction: String {
 }
 
 class Player: SKSpriteNode {
-  
+    
+    private var idleAnimYami: SKAction = SKAction(named: "Idle")!
+    private var walkFrontAnimYami: SKAction = SKAction(named: "walkFrontAnim")!
   private var currentDirection = Direction.stop
   
   func move(_ direction: Direction) {
     print("move player: \(direction.rawValue)")
+      self.run(walkFrontAnimYami, withKey: "walkFrontAnim")
     switch direction {
     case .up:
       self.physicsBody?.velocity = CGVector(dx: 0, dy: 50)
@@ -57,6 +60,7 @@ class Player: SKSpriteNode {
   
   func stop() {
     self.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+      self.run(idleAnimYami, withKey: "AnimIdle")
   }
   
   func attack() {

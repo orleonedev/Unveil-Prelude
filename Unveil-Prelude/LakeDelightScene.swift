@@ -16,7 +16,7 @@ class LakeDelightScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     private var player: Player?
-    private var idleAnimPlayer: SKAction = SKAction(named: "Idle")!
+    
     
     let margin: CGFloat = 20.0
     
@@ -27,7 +27,7 @@ class LakeDelightScene: SKScene {
     override func didMove(to view: SKView) {
         player = childNode(withName: "player") as? Player
         player?.move(.stop)
-        player?.run(idleAnimPlayer, withKey: "AnimIdle")
+        
         
         setupCamera()
         
@@ -121,8 +121,8 @@ class LakeDelightScene: SKScene {
     
     func updateControllerLocation() {
               let controller = childNode(withName: "//controller")
-              controller?.position = CGPoint(x: (viewLeft  + insets.left),
-                                             y: (viewBottom  + insets.bottom))
+              controller?.position = CGPoint(x: (viewLeft  - margin + insets.left),
+                                             y: (viewBottom  + insets.bottom - margin/2 ))
         
 //              let attackButton = childNode(withName: "//attackButton")
 //              attackButton?.position = CGPoint(x: (viewRight - margin - insets.right),

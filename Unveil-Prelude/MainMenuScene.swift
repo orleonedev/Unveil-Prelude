@@ -19,14 +19,44 @@ class MainMenuScene: SKScene {
     override func sceneDidLoad() {
 
         self.unveilLabel = self.childNode(withName: "unveilLabel") as? SKLabelNode
-        self.buttonNode = self.childNode(withName: "ButtonNode") as? SKShapeNode
+        self.buttonNode = self.childNode(withName: "buttonNode") as? SKShapeNode
         self.tapToStartLabel = self.childNode(withName: "tapToStartLabel") as? SKLabelNode
         self.backgroundNode = self.childNode(withName: "backgroundNode") as? SKSpriteNode
         
         
     }
     
-    
-    
+    override func touchesBegan(_ touches: Set<UITouch>,
+                               with event: UIEvent?) {
+        guard let touch = touches.first else {
+            return
+        }
+        let touchLocation = touch.location(in: self)
+        sceneTouched(touchLocation: touchLocation)
     }
+    
+    override func touchesMoved(_ touches: Set<UITouch>,
+                               with event: UIEvent?) {
+        guard let touch = touches.first else {
+            return
+        }
+        let touchLocation = touch.location(in: self)
+        sceneTouched(touchLocation: touchLocation)
+    }
+    
+    func sceneTouched(touchLocation:CGPoint) {
+        let nodeAtPoint = atPoint(touchLocation)
+        if let touchedNode = nodeAtPoint as? SKLabelNode {
+            if touchedNode.name?.starts(with: "tapToStart") == true{
+                if let nextScene = GKScene(fileNamed: "LakeDelightScene") {
+                    if let nextSceneNode = nextScene.rootNode as! LakeDelightScene? {
+                        nextSceneNode.scaleMode = .resizeFill
+                        view?.presentScene(nextSceneNode, transition: .fade(withDuration: 2.0))
+                    }
+                }
+            }
+        }
+    }
+    
+}
 
