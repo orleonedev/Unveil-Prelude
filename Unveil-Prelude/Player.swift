@@ -25,30 +25,66 @@ class Player: SKSpriteNode {
     
     private var idleAnimYami: SKAction = SKAction(named: "Idle")!
     private var walkFrontAnimYami: SKAction = SKAction(named: "walkFrontAnim")!
+    private var walkBackAnimYami: SKAction = SKAction(named: "walkBackAnim")!
+    private var walkRightAnimYami: SKAction = SKAction(named: "walkRightAnim")!
+    private var walkLeftAnimYami: SKAction = SKAction(named: "walkLeftAnim")!
   private var currentDirection = Direction.stop
+    private var isIdle: Bool = true
   
   func move(_ direction: Direction) {
     print("move player: \(direction.rawValue)")
-      self.run(walkFrontAnimYami, withKey: "walkFrontAnim")
+      
     switch direction {
     case .up:
+        self.removeAllActions()
+        self.isIdle = false
+        self.run(walkBackAnimYami, withKey: "walkBackAnim")
       self.physicsBody?.velocity = CGVector(dx: 0, dy: 50)
-      //self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 100))
-    //self.physicsBody?.applyForce(CGVector(dx: 0, dy: 100))
     case .down:
+        self.removeAllActions()
+        self.isIdle = false
+        self.run(walkFrontAnimYami, withKey: "walkFrontAnim")
       self.physicsBody?.velocity = CGVector(dx: 0, dy: -50)
     case .left:
+        self.removeAllActions()
+        self.isIdle = false
+        self.run(walkLeftAnimYami, withKey: "walkSideAnim")
       self.physicsBody?.velocity = CGVector(dx: -50, dy: 0)
     case .right:
+        self.removeAllActions()
+        self.isIdle = false
+        self.run(walkRightAnimYami, withKey: "walkRightAnim")
       self.physicsBody?.velocity = CGVector(dx: 50, dy: 0)
     case .topLeft:
+        if isIdle{
+            self.removeAllActions()
+            self.run(walkBackAnimYami, withKey: "walkBackAnim")
+        }
       self.physicsBody?.velocity = CGVector(dx: -50, dy: 50)
+        
     case .topRight:
+        if isIdle{
+            self.removeAllActions()
+            self.run(walkBackAnimYami, withKey: "walkBackAnim")
+        }
       self.physicsBody?.velocity = CGVector(dx: 50, dy: 50)
+        
     case .bottomLeft:
+        if isIdle{
+            self.removeAllActions()
+            self.isIdle = false
+            self.run(walkFrontAnimYami, withKey: "walkFrontAnim")
+        }
       self.physicsBody?.velocity = CGVector(dx: -50, dy: -50)
+        
     case .bottomRight:
+        if isIdle{
+            self.removeAllActions()
+            self.isIdle = false
+            self.run(walkFrontAnimYami, withKey: "walkFrontAnim")
+        }
       self.physicsBody?.velocity = CGVector(dx: 50, dy: -50)
+        
     case .stop:
       stop()
     }
@@ -59,6 +95,8 @@ class Player: SKSpriteNode {
   }
   
   func stop() {
+      self.removeAllActions()
+      self.isIdle = true
     self.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
       self.run(idleAnimYami, withKey: "AnimIdle")
   }
