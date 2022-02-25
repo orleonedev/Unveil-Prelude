@@ -19,11 +19,14 @@ class DemoLaunchScene: SKScene {
         
         self.firstLabel = self.childNode(withName: "firstLabel") as? SKLabelNode
         if let firstLabel = self.firstLabel {
+            firstLabel.text = NSLocalizedString("This is a Demo Version of Un:Veil", comment: "Demo Version")
             firstLabel.alpha = 0.0
             firstLabel.run(SKAction.fadeIn(withDuration: 1.0))
         }
         self.subheadLabel = self.childNode(withName: "subheadLabel") as? SKLabelNode
         if let subheadLabel = self.subheadLabel {
+            subheadLabel.text = NSLocalizedString("SubheadDemoLine", comment: "subhead")
+            
             subheadLabel.alpha = 0.0
             subheadLabel.run(SKAction.fadeIn(withDuration: 1.0))
         }

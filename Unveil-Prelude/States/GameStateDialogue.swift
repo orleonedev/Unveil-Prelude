@@ -16,6 +16,9 @@ class GameStateDialogue: GKState {
     }
     
     override func didEnter(from previousState: GKState?) {
+        
             print("Dialogue State")
+        
         }
+    
 }

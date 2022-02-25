@@ -18,12 +18,11 @@ class LakeDelightScene: SKScene {
     private var player: Player?
     
     
+    
     var GameStateMachine: GKStateMachine?
     
-    let activeState = GameStateActive()
-    let dialogueState = GameStateDialogue()
-    let menuState = GameStateMenu()
-    
+    private var mapLabel: SKLabelNode?
+    private var dialogueOverlay: SKNode?
     
     
     
@@ -31,12 +30,18 @@ class LakeDelightScene: SKScene {
     
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
+        GameStateMachine = GKStateMachine(states: [GameStateActive(),GameStateDialogue(),GameStateMenu()])
+        GameStateMachine?.enter(GameStateActive.self)
+        
+        self.mapLabel = self.childNode(withName: "//mapLabel") as? SKLabelNode
+        if let label = self.mapLabel {
+            label.text = NSLocalizedString("Lake Delight", comment: "LaKe DeLiGhT")
+            label.run(SKAction.fadeOut(withDuration: 1.0))
+        }
+        
     }
     
     override func didMove(to view: SKView) {
-        
-        GameStateMachine = GKStateMachine(states: [activeState,dialogueState,menuState])
-        GameStateMachine?.enter(GameStateActive.self)
         
         
         player = childNode(withName: "player") as? Player
@@ -50,6 +55,21 @@ class LakeDelightScene: SKScene {
         
         let lakeMapNode = childNode(withName: "LakeMapNode") as? SKTileMapNode
         lakeMapNode?.setupMapPhysics()
+        
+        if (GameStateMachine?.enter(GameStateDialogue.self)) != nil{
+            dialogueOverlay = childNode(withName: "//dialogueOveraly")
+            dialogueOverlay?.alpha = 1.0
+            if let name = dialogueOverlay?.childNode(withName: "//SpeakerName") as? SKLabelNode {
+                name.text = NSLocalizedString("YamiName", comment: "YamiName")
+            }
+            if let dialogue = dialogueOverlay?.childNode(withName: "//DialogueText") as? SKLabelNode {
+                dialogue.text = NSLocalizedString("FirstDialogLine", comment: "firstLine")
+            }
+            if let image = dialogueOverlay?.childNode(withName: "//SpeakerSprite") as? SKSpriteNode {
+                image.texture = SKTexture.init(imageNamed: "Yami-Pensieroso")
+            }
+            
+        }
     }
     
     func setupCamera() {
@@ -63,14 +83,22 @@ class LakeDelightScene: SKScene {
     
     func touchDown(atPoint pos : CGPoint) {
               let nodeAtPoint = atPoint(pos)
-              if let touchedNode = nodeAtPoint as? SKSpriteNode {
-                if touchedNode.name?.starts(with: "controller_") == true {
+              if let touchedNode = nodeAtPoint as? SKNode {
+                  
+                  if (touchedNode as? SKSpriteNode)?.name?.starts(with: "controller_") == true {
                   let direction = touchedNode.name?.replacingOccurrences(
                     of: "controller_", with: "")
                   player?.move(Direction(rawValue: direction ?? "stop")!)
-                } else if touchedNode.name == "button_attack" {
-                  player?.attack()
                 }
+                  else if (touchedNode as? SKSpriteNode)?.name == "interact_button" {
+                  player?.interact()
+                }
+                  else if (
+                    (touchedNode as? SKShapeNode)?.name == "DialogueBox" || (touchedNode as? SKLabelNode)?.name == "DialogueText") {
+                      GameStateMachine?.enter(GameStateActive.self)
+                      dialogueOverlay?.run(SKAction.fadeOut(withDuration: 0.25))
+                      
+                  }
               }
     }
     
@@ -134,12 +162,25 @@ class LakeDelightScene: SKScene {
     }
     
     func updateControllerLocation() {
-              let controller = childNode(withName: "//controller")
-              controller?.position = CGPoint(x: (viewLeft  - margin + insets.left),
+        let controller: SKNode? = childNode(withName: "controller")
+        let interactButton: SKNode? = childNode(withName: "interact")
+        if GameStateMachine?.currentState is GameStateActive
+             {
+//            controller = childNode(withName: "controller")
+            controller?.alpha = 1.0
+            interactButton?.alpha = 1.0
+              controller?.position = CGPoint(x: (viewLeft  - margin-10 + insets.left),
                                              y: (viewBottom  + insets.bottom - margin/2 ))
         
-//              let attackButton = childNode(withName: "//attackButton")
-//              attackButton?.position = CGPoint(x: (viewRight - margin - insets.right),
-//                                               y: (viewBottom + margin + insets.bottom))
+//              interactButton = childNode(withName: "interact")
+              interactButton?.position = CGPoint(x: (viewRight + margin+10 - insets.right),
+                                               y: (viewBottom + insets.bottom - margin/2))
+            
+        }
+        else{
+            controller?.alpha = 0.0
+            interactButton?.alpha = 0.0
+            
+        }
     }
 }

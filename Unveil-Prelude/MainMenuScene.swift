@@ -21,8 +21,10 @@ class MainMenuScene: SKScene {
         self.unveilLabel = self.childNode(withName: "unveilLabel") as? SKLabelNode
         self.buttonNode = self.childNode(withName: "buttonNode") as? SKShapeNode
         self.tapToStartLabel = self.childNode(withName: "tapToStartLabel") as? SKLabelNode
+        if let taplabel = self.tapToStartLabel {
+            taplabel.text = NSLocalizedString("Tap To Start", comment: "tap")
+        }
         self.backgroundNode = self.childNode(withName: "backgroundNode") as? SKSpriteNode
-        
         
     }
     
