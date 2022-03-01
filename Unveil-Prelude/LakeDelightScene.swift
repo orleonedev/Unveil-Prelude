@@ -12,6 +12,8 @@ import GameplayKit
 class LakeDelightScene: SKScene {
     
     var dialogueManager: DialogueManager = DialogueManager()
+    var scriptInstance: Script?
+    var dialogueInstance: Dialogue?
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
@@ -65,22 +67,21 @@ class LakeDelightScene: SKScene {
         lakeMapNode?.setupMapPhysics()
         
         if (GameStateMachine?.enter(GameStateDialogue.self)) != nil{
+            updateDialogue()
+        }
+    }
+    
+    func updateDialogue(){
+        if let name = dialogueOverlay?.childNode(withName: "//SpeakerName") as? SKLabelNode {
+            name.text = dialogueInstance?.speakerName
             
-            let provaDialogo: Dialogue = dialogueManager.getScript(numb: QuestPhase.start.rawValue).getDialogue(numb: QuestPhase.start.rawValue)
-            dialogueOverlay?.alpha = 1.0
-            if let name = dialogueOverlay?.childNode(withName: "//SpeakerName") as? SKLabelNode {
-                name.text = provaDialogo.speakerName
-                //name.text = NSLocalizedString("YamiName", comment: "YamiName")
-            }
-            if let dialogue = dialogueOverlay?.childNode(withName: "//DialogueText") as? SKLabelNode {
-                dialogue.text = provaDialogo.dialogueText
-                //dialogue.text = NSLocalizedString("FirstDialogLine", comment: "firstLine")
-            }
-            if let image = dialogueOverlay?.childNode(withName: "//SpeakerSprite") as? SKSpriteNode {
-                image.texture = SKTexture.init(imageNamed: provaDialogo.speakerImg)
-                //image.texture = SKTexture.init(imageNamed: "Yami-Pensieroso")
-            }
+        }
+        if let dialogue = dialogueOverlay?.childNode(withName: "//DialogueText") as? SKLabelNode {
+            dialogue.text = dialogueInstance?.dialogueText
             
+        }
+        if let image = dialogueOverlay?.childNode(withName: "//SpeakerSprite") as? SKSpriteNode {
+            image.texture = SKTexture.init(imageNamed: dialogueInstance?.speakerImg ?? "")
         }
     }
     
@@ -118,8 +119,16 @@ class LakeDelightScene: SKScene {
 
                   else if (
                     (touchedNode as? SKShapeNode)?.name == "DialogueBox" || (touchedNode as? SKLabelNode)?.name == "DialogueText") {
-                      GameStateMachine?.enter(GameStateActive.self)
-                      dialogueOverlay?.run(SKAction.fadeOut(withDuration: 0.25))
+                      
+                     if let nextDialogue = scriptInstance?.getNextDialogue()  {
+                         scriptInstance?.currentIndex += 1
+                         dialogueInstance = nextDialogue
+                         updateDialogue()
+                          }
+                      else {
+                          GameStateMachine?.enter(GameStateActive.self)
+                          dialogueOverlay?.run(SKAction.fadeOut(withDuration: 0.25))
+                      }
                       
                   }
               }

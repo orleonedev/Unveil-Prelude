@@ -25,10 +25,16 @@ class GameStateDialogue: GKState {
     override func didEnter(from previousState: GKState?) {
         print("Dialogue State")
         lakeDelightScene.dialogueOverlay?.alpha = 1.0
+        lakeDelightScene.scriptInstance = lakeDelightScene.dialogueManager.getNextScript()
+        lakeDelightScene.dialogueInstance = lakeDelightScene.scriptInstance?.getDialogue(numb: 0)
+        lakeDelightScene.updateDialogue()
         }
     
     override func willExit(to nextState: GKState) {
         super.willExit(to: nextState)
         lakeDelightScene.dialogueOverlay?.alpha = 0.0
+        lakeDelightScene.dialogueManager.phases.next()
     }
+    
+    
 }
