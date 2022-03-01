@@ -66,6 +66,16 @@ class LakeDelightScene: SKScene {
         let lakeMapNode = childNode(withName: "LakeMapNode") as? SKTileMapNode
         lakeMapNode?.setupMapPhysics()
         
+        let bushMapNode = childNode(withName: "BushMapNode") as? SKTileMapNode
+        bushMapNode?.setupMapPhysics()
+        let bushMapNode2 = childNode(withName: "BushMapNode2") as? SKTileMapNode
+        bushMapNode2?.setupMapPhysics()
+        
+        let treeMapNode = childNode(withName: "TreeMapNode") as? SKTileMapNode
+        treeMapNode?.setupMapPhysics()
+        let treeMapNode2 = childNode(withName: "TreeMapNode2") as? SKTileMapNode
+        treeMapNode2?.setupMapPhysics()
+        
         if (GameStateMachine?.enter(GameStateDialogue.self)) != nil{
             updateDialogue()
         }
@@ -81,7 +91,12 @@ class LakeDelightScene: SKScene {
             
         }
         if let image = dialogueOverlay?.childNode(withName: "//SpeakerSprite") as? SKSpriteNode {
-            image.texture = SKTexture.init(imageNamed: dialogueInstance?.speakerImg ?? "")
+            if dialogueInstance?.speakerImg != "" {
+                image.texture = SKTexture.init(imageNamed: dialogueInstance?.speakerImg ?? "")
+            }else{
+                image.texture = SKTexture.init()
+            }
+            
         }
     }
     
