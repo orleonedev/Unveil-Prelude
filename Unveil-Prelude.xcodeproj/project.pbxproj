@@ -101,32 +101,16 @@
 		5115DA6427BF7F1C00549878 /* Unveil-Prelude */ = {
 			isa = PBXGroup;
 			children = (
-				51A8442427CF59EF0031DCF5 /* Info.plist */,
+				51A8442827CF75F70031DCF5 /* Base */,
+				51A8442727CF75EA0031DCF5 /* Scenes */,
+				51A8442627CF759C0031DCF5 /* Dialogues */,
+				51A8442527CF753A0031DCF5 /* Storyboard */,
 				51A8442127CF58980031DCF5 /* Font */,
 				518C490B27C52D7200A71680 /* States */,
-				5115DA6527BF7F1C00549878 /* AppDelegate.swift */,
-				5115DA6D27BF7F1C00549878 /* GameViewController.swift */,
-				5115DA6F27BF7F1C00549878 /* Main.storyboard */,
 				5115DA7227BF7F1D00549878 /* Assets.xcassets */,
 				5115DA8A27BF9F7B00549878 /* MyTileSet.sks */,
-				5115DA7427BF7F1D00549878 /* LaunchScreen.storyboard */,
-				5115DA7C27BF8D7200549878 /* DemoLaunchScene.swift */,
-				5115DA8227BF8F7F00549878 /* MainMenuScene.swift */,
-				5115DA8427BF9A0D00549878 /* Player.swift */,
-				5115DA8627BF9CC100549878 /* SKScene+ViewProperties.swift */,
-				5115DA8C27BFA9F500549878 /* LakeDelightScene.swift */,
-				5115DA8E27BFAA3A00549878 /* SKTileMapNode+Physics.swift */,
-				5115DA6927BF7F1C00549878 /* Actions.sks */,
-				5115DA7E27BF8DEB00549878 /* DemoLaunchScene.sks */,
-				5115DA8027BF8EC800549878 /* MainMenuScene.sks */,
-				5115DA8827BF9EED00549878 /* LakeDelightScene.sks */,
-				5115DA9027BFB29000549878 /* InteractionButton.sks */,
-				5115DA9227BFB2B600549878 /* Controller.sks */,
-				5167EDD827C7CFFE00000B0E /* DialogueScene.sks */,
 				514A15D027C8CA09008C821C /* Localizable.strings */,
-				5157944227CCEC2A00CC86BC /* MenuScene.sks */,
-				51177E9227CD3B27003E2833 /* DialogueManager.swift */,
-				51177E9427CD3B7E003E2833 /* Dialogue.swift */,
+				51A8442427CF59EF0031DCF5 /* Info.plist */,
 			);
 			path = "Unveil-Prelude";
 			sourceTree = "<group>";
@@ -147,6 +131,62 @@
 				51A8442227CF59260031DCF5 /* VT323-Regular.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		51A8442527CF753A0031DCF5 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5115DA6F27BF7F1C00549878 /* Main.storyboard */,
+				5115DA7427BF7F1D00549878 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		51A8442627CF759C0031DCF5 /* Dialogues */ = {
+			isa = PBXGroup;
+			children = (
+				51177E9227CD3B27003E2833 /* DialogueManager.swift */,
+				51177E9427CD3B7E003E2833 /* Dialogue.swift */,
+			);
+			path = Dialogues;
+			sourceTree = "<group>";
+		};
+		51A8442727CF75EA0031DCF5 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				51A8442927CF76970031DCF5 /* Overlays */,
+				5115DA7C27BF8D7200549878 /* DemoLaunchScene.swift */,
+				5115DA7E27BF8DEB00549878 /* DemoLaunchScene.sks */,
+				5115DA8227BF8F7F00549878 /* MainMenuScene.swift */,
+				5115DA8027BF8EC800549878 /* MainMenuScene.sks */,
+				5115DA8C27BFA9F500549878 /* LakeDelightScene.swift */,
+				5115DA8827BF9EED00549878 /* LakeDelightScene.sks */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		51A8442827CF75F70031DCF5 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5115DA6527BF7F1C00549878 /* AppDelegate.swift */,
+				5115DA6D27BF7F1C00549878 /* GameViewController.swift */,
+				5115DA8627BF9CC100549878 /* SKScene+ViewProperties.swift */,
+				5115DA8E27BFAA3A00549878 /* SKTileMapNode+Physics.swift */,
+				5115DA8427BF9A0D00549878 /* Player.swift */,
+				5115DA6927BF7F1C00549878 /* Actions.sks */,
+				5115DA9027BFB29000549878 /* InteractionButton.sks */,
+				5115DA9227BFB2B600549878 /* Controller.sks */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		51A8442927CF76970031DCF5 /* Overlays */ = {
+			isa = PBXGroup;
+			children = (
+				5167EDD827C7CFFE00000B0E /* DialogueScene.sks */,
+				5157944227CCEC2A00CC86BC /* MenuScene.sks */,
+			);
+			path = Overlays;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

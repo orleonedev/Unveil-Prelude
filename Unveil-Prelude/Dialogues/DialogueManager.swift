@@ -33,8 +33,6 @@ struct Script {
     }
     
     func getNextDialogue() -> Dialogue? {
-        print(currentIndex)
-        print(dialoguesStore.endIndex)
         if currentIndex != dialoguesStore.endIndex-1 {
             return getDialogue(numb: currentIndex+1)
         }
