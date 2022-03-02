@@ -33,6 +33,7 @@
 		518C490D27C52D9600A71680 /* GameStateActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C490C27C52D9600A71680 /* GameStateActive.swift */; };
 		518C490F27C52DA600A71680 /* GameStateDialogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C490E27C52DA600A71680 /* GameStateDialogue.swift */; };
 		518C491127C52DBD00A71680 /* GameStateMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C491027C52DBD00A71680 /* GameStateMenu.swift */; };
+		51A8442327CF59260031DCF5 /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51A8442227CF59260031DCF5 /* VT323-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,8 @@
 		518C490C27C52D9600A71680 /* GameStateActive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateActive.swift; sourceTree = "<group>"; };
 		518C490E27C52DA600A71680 /* GameStateDialogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateDialogue.swift; sourceTree = "<group>"; };
 		518C491027C52DBD00A71680 /* GameStateMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateMenu.swift; sourceTree = "<group>"; };
+		51A8442227CF59260031DCF5 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
+		51A8442427CF59EF0031DCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 		5115DA6427BF7F1C00549878 /* Unveil-Prelude */ = {
 			isa = PBXGroup;
 			children = (
+				51A8442427CF59EF0031DCF5 /* Info.plist */,
+				51A8442127CF58980031DCF5 /* Font */,
 				518C490B27C52D7200A71680 /* States */,
 				5115DA6527BF7F1C00549878 /* AppDelegate.swift */,
 				5115DA6D27BF7F1C00549878 /* GameViewController.swift */,
@@ -134,6 +139,14 @@
 				518C491027C52DBD00A71680 /* GameStateMenu.swift */,
 			);
 			path = States;
+			sourceTree = "<group>";
+		};
+		51A8442127CF58980031DCF5 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				51A8442227CF59260031DCF5 /* VT323-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +212,7 @@
 				514A15CE27C8CA09008C821C /* Localizable.strings in Resources */,
 				5115DA8127BF8EC800549878 /* MainMenuScene.sks in Resources */,
 				5115DA9327BFB2B600549878 /* Controller.sks in Resources */,
+				51A8442327CF59260031DCF5 /* VT323-Regular.ttf in Resources */,
 				5115DA7F27BF8DEB00549878 /* DemoLaunchScene.sks in Resources */,
 				5115DA9127BFB29000549878 /* InteractionButton.sks in Resources */,
 				5157944327CCEC2A00CC86BC /* MenuScene.sks in Resources */,
@@ -394,6 +408,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SA4H49C4LT;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Unveil-Prelude/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -424,6 +439,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SA4H49C4LT;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Unveil-Prelude/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
