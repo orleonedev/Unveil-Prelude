@@ -84,11 +84,9 @@ class LakeDelightScene: SKScene {
     func updateDialogue(){
         if let name = dialogueOverlay?.childNode(withName: "//SpeakerName") as? SKLabelNode {
             name.text = dialogueInstance?.speakerName
-            
         }
         if let dialogue = dialogueOverlay?.childNode(withName: "//DialogueText") as? SKLabelNode {
             dialogue.text = dialogueInstance?.dialogueText
-            
         }
         if let image = dialogueOverlay?.childNode(withName: "//SpeakerSprite") as? SKSpriteNode {
             if dialogueInstance?.speakerImg != "" {
@@ -96,7 +94,6 @@ class LakeDelightScene: SKScene {
             }else{
                 image.texture = SKTexture.init()
             }
-            
         }
     }
     
@@ -104,70 +101,63 @@ class LakeDelightScene: SKScene {
         guard let player = player else { return }
         let distance = SKRange(constantValue: 0)
         let playerConstraint = SKConstraint.distance(distance, to: player)
-        
         camera?.constraints = [playerConstraint]
     }
     
     
     func touchDown(atPoint pos : CGPoint) {
-              let nodeAtPoint = atPoint(pos)
-              if let touchedNode = nodeAtPoint as? SKNode  {
-                  
-                  if (touchedNode as? SKSpriteNode)?.name?.starts(with: "controller_") == true {
-                  let direction = touchedNode.name?.replacingOccurrences(
+        let nodeAtPoint = atPoint(pos)
+        if let touchedNode = nodeAtPoint as? SKNode  {
+            if (touchedNode as? SKSpriteNode)?.name?.starts(with: "controller_") == true {
+                let direction = touchedNode.name?.replacingOccurrences(
                     of: "controller_", with: "")
-                      if let sprite = touchedNode as? SKSpriteNode{
-                          sprite.alpha = 1.0
-                      }
-                  player?.move(Direction(rawValue: direction ?? "stop")!)
+                player?.move(Direction(rawValue: direction ?? "stop")!)
+            }
+            else if (touchedNode as? SKSpriteNode)?.name == "interact_button" {
+                GameStateMachine?.enter(GameStateDialogue.self)
+                player?.interact()
+            }
+            else if (touchedNode as? SKSpriteNode)?.name == "menuButton" {
+                GameStateMachine?.enter(GameStateMenu.self)
+            }
+            else if (touchedNode as? SKSpriteNode)?.name == "closeButton" {
+                GameStateMachine?.enter(GameStateActive.self)
+            }
+            
+            else if (
+                (touchedNode as? SKShapeNode)?.name == "DialogueBox" || (touchedNode as? SKLabelNode)?.name == "DialogueText") {
+                
+                if let nextDialogue = scriptInstance?.getNextDialogue()  {
+                    scriptInstance?.currentIndex += 1
+                    dialogueInstance = nextDialogue
+                    updateDialogue()
                 }
-                  else if (touchedNode as? SKSpriteNode)?.name == "interact_button" {
-                      GameStateMachine?.enter(GameStateDialogue.self)
-                  player?.interact()
+                else {
+                    GameStateMachine?.enter(GameStateActive.self)
+                    dialogueOverlay?.run(SKAction.fadeOut(withDuration: 0.25))
                 }
-                  else if (touchedNode as? SKSpriteNode)?.name == "menuButton" {
-                      GameStateMachine?.enter(GameStateMenu.self)
-                }
-                  else if (touchedNode as? SKSpriteNode)?.name == "closeButton" {
-                      GameStateMachine?.enter(GameStateActive.self)
-                }
-
-                  else if (
-                    (touchedNode as? SKShapeNode)?.name == "DialogueBox" || (touchedNode as? SKLabelNode)?.name == "DialogueText") {
-                      
-                     if let nextDialogue = scriptInstance?.getNextDialogue()  {
-                         scriptInstance?.currentIndex += 1
-                         dialogueInstance = nextDialogue
-                         updateDialogue()
-                          }
-                      else {
-                          GameStateMachine?.enter(GameStateActive.self)
-                          dialogueOverlay?.run(SKAction.fadeOut(withDuration: 0.25))
-                      }
-                      
-                  }
-              }
+            }
+        }
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-              let nodeAtPoint = atPoint(pos)
-              if let touchedNode = nodeAtPoint as? SKSpriteNode {
-                if touchedNode.name?.starts(with: "controller_") == true {
-                  let direction = touchedNode.name?.replacingOccurrences(
+        let nodeAtPoint = atPoint(pos)
+        if let touchedNode = nodeAtPoint as? SKSpriteNode {
+            if touchedNode.name?.starts(with: "controller_") == true {
+                let direction = touchedNode.name?.replacingOccurrences(
                     of: "controller_", with: "")
-                  player?.move(Direction(rawValue: direction ?? "stop")!)
-                }
-              }
+                player?.move(Direction(rawValue: direction ?? "stop")!)
+            }
+        }
     }
     
     func touchUp(atPoint pos : CGPoint) {
-              let nodeAtPoint = atPoint(pos)
-              if let touchedNode = nodeAtPoint as? SKSpriteNode {
-                if touchedNode.name?.starts(with: "controller_") == true {
-                        touchedNode.alpha = 0.5
-                  player?.stop()
-                }
-              }
+        let nodeAtPoint = atPoint(pos)
+        if let touchedNode = nodeAtPoint as? SKSpriteNode {
+            if touchedNode.name?.starts(with: "controller_") == true {
+                player?.stop()
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -203,6 +193,7 @@ class LakeDelightScene: SKScene {
         }
         
         self.lastUpdateTime = currentTime
+        
     }
     
     override func didFinishUpdate() {
@@ -211,12 +202,10 @@ class LakeDelightScene: SKScene {
     
     func updateControllerLocation() {
         
-              controller?.position = CGPoint(x: (viewLeft  - margin-10 + insets.left),
-                                             y: (viewBottom  + insets.bottom - margin/2 ))
+        controller?.position = CGPoint(x: (viewLeft  - margin-10 + insets.left),
+                                       y: (viewBottom  + insets.bottom - margin/2 ))
         
-
-              interactButton?.position = CGPoint(x: (viewRight + margin+10 - insets.right),
-                                               y: (viewBottom + insets.bottom - margin/2))
-        
+        interactButton?.position = CGPoint(x: (viewRight + margin+10 - insets.right),
+                                           y: (viewBottom + insets.bottom - margin/2))
     }
 }

@@ -69,6 +69,7 @@
 		518C491027C52DBD00A71680 /* GameStateMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateMenu.swift; sourceTree = "<group>"; };
 		51A8442227CF59260031DCF5 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
 		51A8442427CF59EF0031DCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		51A8442A27CF89A20031DCF5 /* toKeepNotice.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = toKeepNotice.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +112,7 @@
 				5115DA8A27BF9F7B00549878 /* MyTileSet.sks */,
 				514A15D027C8CA09008C821C /* Localizable.strings */,
 				51A8442427CF59EF0031DCF5 /* Info.plist */,
+				51A8442A27CF89A20031DCF5 /* toKeepNotice.md */,
 			);
 			path = "Unveil-Prelude";
 			sourceTree = "<group>";
