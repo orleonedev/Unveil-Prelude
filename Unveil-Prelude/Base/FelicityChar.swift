@@ -12,7 +12,7 @@ import Foundation
 class FelicityChar: SKSpriteNode {
     
     private var walkBackAnimFelicity: SKAction = SKAction(named: "FelicityWalkBackAnim")!
-    private var idleAnimFelicity: SKAction = SKAction(named: "Idle")!
+    private var idleAnimFelicity: SKAction = SKAction(named: "idleFelicity")!
 //    private var idleAnimYami: SKAction = SKAction(named: "Idle")!
 //    private var walkFrontAnimYami: SKAction = SKAction(named: "walkFrontAnim")!
 //    private var walkBackAnimYami: SKAction = SKAction(named: "walkBackAnim")!
@@ -30,7 +30,7 @@ class FelicityChar: SKSpriteNode {
             self.removeAllActions()
             self.isIdle = false
             self.run(walkBackAnimFelicity, withKey: "walkBackAnim")
-            let moveY = SKAction.moveTo(y: posY, duration: 2.0)
+            let moveY = SKAction.moveTo(y: posY, duration: 1.5)
             let moveX = SKAction.moveTo(x: posX, duration: 1.0)
             self.run(SKAction.sequence([moveX,moveY,idleAnimFelicity]))
 //

@@ -13,7 +13,7 @@ import Foundation
 class TakeoChar: SKSpriteNode {
     
     private var walkBackAnimTakeo: SKAction = SKAction(named: "TakeoWalkBackAnim")!
-    private var idleAnimTakeo: SKAction = SKAction(named: "Idle")!
+    private var idleAnimTakeo: SKAction = SKAction(named: "idleTakeo")!
 //    private var idleAnimYami: SKAction = SKAction(named: "Idle")!
 //    private var walkFrontAnimYami: SKAction = SKAction(named: "walkFrontAnim")!
 //    private var walkBackAnimYami: SKAction = SKAction(named: "walkBackAnim")!
@@ -31,7 +31,7 @@ class TakeoChar: SKSpriteNode {
             self.removeAllActions()
             self.isIdle = false
             self.run(walkBackAnimTakeo, withKey: "walkBackAnim")
-            let moveY = SKAction.moveTo(y: posY, duration: 2.0)
+            let moveY = SKAction.moveTo(y: posY, duration: 2.5)
             let moveX = SKAction.moveTo(x: posX, duration: 1.0)
             self.run(SKAction.sequence([moveX,moveY,idleAnimTakeo]))
 //

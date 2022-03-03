@@ -25,7 +25,18 @@ class GameStateMenu: GKState {
         print("menuState")
         lakeDelightScene.menuOverlay?.alpha = 1.0
         lakeDelightScene.questTitle?.text = NSLocalizedString("Quest1", comment: "QuestTitle1")
-        lakeDelightScene.questDescription?.text = NSLocalizedString("Quest1Description", comment: "QuestTitle1Description")
+        
+        switch DialogueManager.questPhase{
+        case .start:
+            lakeDelightScene.questDescription?.text = NSLocalizedString("Quest1Description", comment: "phase1")
+        case .first:
+            lakeDelightScene.questDescription?.text = NSLocalizedString("Quest1Description", comment: "phase1")
+        case .second:
+            lakeDelightScene.questDescription?.text = NSLocalizedString("Quest2Description", comment: "phase2")
+        //case .third:
+       //     lakeDelightScene.questDescription?.text = NSLocalizedString("Quest3Description", comment: "phase3")
+            
+        }
         
         }
     

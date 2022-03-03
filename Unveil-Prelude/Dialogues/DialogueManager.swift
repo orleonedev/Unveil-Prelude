@@ -9,7 +9,7 @@ import Foundation
 import GameplayKit
 
 enum QuestPhase: Int, CaseIterable {
-    case start = 0, second
+    case start = 0, first, second
     //,third
     
     mutating func next() {
@@ -50,11 +50,11 @@ let script3 = Script(dialogues: [])
 
 class DialogueManager {
     
-    var phases: QuestPhase
+    static var questPhase: QuestPhase = QuestPhase.start
     var scriptStore: [Script]
     
     init(){
-        phases = .start
+        
         self.scriptStore = [script1,script2
         //                    ,script3
         ]
@@ -65,8 +65,11 @@ class DialogueManager {
     }
     
     func getNextScript()-> Script {
-        return getScript(numb: phases)
+        return getScript(numb: DialogueManager.questPhase)
     }
     
-    
 }
+
+
+
+

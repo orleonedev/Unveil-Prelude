@@ -15,6 +15,16 @@
 - Imported a custom font licensed under the Open Font License
 
 
+# ChangeLog n3 External
+
+- New App Icon
+- Improved Game State Machine
+- Improved obejcts Physics 
+- Added Events and contact logic 
+- Improved assets for level design and user input
+- Imported new localized dialogues 
+- Secondary characters now showing on the scene
+- Improved animation for character sprites
 
 
 

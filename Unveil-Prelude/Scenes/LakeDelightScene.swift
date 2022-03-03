@@ -40,9 +40,11 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     var eventMapNode2: SKTileMapNode?
     var eventMapNode3: SKTileMapNode?
     
+    var puzzleEnabled: Bool = false
+    
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
-        GameStateMachine = GKStateMachine(states: [GameStateActive(scene: self),GameStateDialogue(scene: self),GameStateMenu(scene: self)])
+        GameStateMachine = GKStateMachine(states: [GameStateActive(scene: self),GameStateDialogue(scene: self),GameStateMenu(scene: self),GameStatePuzzle(scene: self), GameStateDialogueEvent(scene: self)])
         GameStateMachine?.enter(GameStateActive.self)
         
         self.mapLabel = self.childNode(withName: "//mapLabel") as? SKLabelNode
@@ -58,8 +60,6 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         self.questTitle = childNode(withName: "//questTitle") as? SKLabelNode
         self.questDescription = childNode(withName: "//questDescription") as? SKLabelNode
         
-        
-        
     }
     
     override func didMove(to view: SKView) {
@@ -69,7 +69,8 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         player = childNode(withName: "player") as? Player
         print(player?.name ?? "what")
         player?.move(.stop)
-        player?.physicsBody?.contactTestBitMask = 3
+        player?.physicsBody?.contactTestBitMask = 4
+        
         felicity = childNode(withName: "Felicity") as? FelicityChar
         takeo = childNode(withName: "Takeo") as? TakeoChar
         setupCamera()
@@ -98,8 +99,6 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         
         eventMapNode3 = childNode(withName: "EventTileMap3") as? SKTileMapNode
         eventMapNode3?.setupEventMapPhysics(eventName: "event3")
-        
-        
         
         if (GameStateMachine?.enter(GameStateDialogue.self)) != nil{
             updateDialogue()
@@ -139,8 +138,10 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                 player?.move(Direction(rawValue: direction ?? "stop")!)
             }
             else if (touchedNode as? SKSpriteNode)?.name == "interact_button" {
-                GameStateMachine?.enter(GameStateDialogue.self)
-                player?.interact()
+                if puzzleEnabled {
+                    GameStateMachine?.enter(GameStatePuzzle.self)
+                    player?.interact()
+                }
             }
             else if (touchedNode as? SKSpriteNode)?.name == "menuButton" {
                 GameStateMachine?.enter(GameStateMenu.self)
@@ -240,18 +241,10 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
             eventMapNode?.removeFromParent()
             player?.stop()
             GameStateMachine?.enter(GameStateDialogue.self)
-            
             takeo?.alpha = 1.0
             felicity?.alpha = 1.0
-//            let felMoveY = SKAction.moveTo(y: (player?.position.y)!, duration: 2.0)
-//            let felMoveX = SKAction.moveTo(x: (player?.position.x)! - 22, duration: 1.0)
             felicity?.move(.up, posX: (player?.position.x)! - 22, posY: (player?.position.y)!)
-            
-//            felicity?.run(SKAction.moveTo(y: (player?.position.y)! , duration: 2.0))
-//            felicity?.run(SKAction.moveTo(x: (player?.position.x)! - 22, duration: 1.0))
-//            takeo?.run(SKAction.moveTo(y: (player?.position.y)! , duration: 2.0))
-//            takeo?.run(SKAction.moveTo(x: (player?.position.x)! - 42, duration: 1.0))
-            takeo?.move(.up, posX: (player?.position.x)! - 42, posY: (player?.position.y)!)
+            takeo?.move(.up, posX: (player?.position.x)! - 48, posY: (player?.position.y)!)
             
             
         } else if eventNode.name == "event2" {
@@ -261,6 +254,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
             if let button = interactButton?.childNode(withName: "//interact_button") as? SKSpriteNode {
                 button.alpha = 1.0
                 button.texture = SKTexture.init(imageNamed: "interactiontrue")
+                puzzleEnabled = true
             }
         }
     }
@@ -289,6 +283,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     
     func doNotCrossBottomMap(){
         player?.stop()
+        GameStateMachine?.enter(GameStateDialogueEvent.self)
         player?.moveBackUp()
         
     }
@@ -297,6 +292,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         if let button = interactButton?.childNode(withName: "//interact_button") as? SKSpriteNode {
             button.alpha = 0.3
             button.texture = SKTexture.init(imageNamed: "pulsanteazione")
+            puzzleEnabled = false
         }
     }
 }

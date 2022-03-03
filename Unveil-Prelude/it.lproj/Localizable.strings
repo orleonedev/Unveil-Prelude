@@ -6,15 +6,19 @@
   
 */
 
-"This is a Demo Version of Un:Veil" = "Questa è una versione Demo di Un:Veil";
-"SubheadDemoLine" = "Alcune cose non sono rappresentate come saranno in futuro";
+"This is a Demo Version of Un:Veil" = "Questa è una versione Demo di Un:Veil.";
+"SubheadDemoLine" = "Alcune cose non sono rappresentate come saranno in futuro.";
 "Tap To Start" = "Tocca per Iniziare";
 "Lake Delight" = "Lago Duria";
 "FirstDialogLine" = "Dove sono Takeo e Felicity? In genere sono io il ritardatario del gruppo...";
 "YamiName" = "Yami Akibara";
 "Quest1" = "Mistero al Lago Duria";
 "Quest1Description" = "Aspetta Takeo e Felicity sulle sponde del Lago Duria";
-"doNotCrossBottom" = "Ma dove sto andando? Dovrei aspettarli vicino le sponde";
+"Quest2Description" = "Vai vicino al cespuglio con lo strano frutto ed investiga.";
+"Quest3Description" = "Ora è il momento di chiudere lo Squarcio sul Lago";
+"doNotCrossBottom" = "Hey ma... Dove sto andando? Dovrei aspettarli vicino le sponde";
+"doNotCrossBottom2" = "Ehm Yami... Il cespuglio strano è proprio qui.";
+"doNotCrossBottom3" = "Forza amico, dobbiamo chiudere lo squarcio!";
 
 "S2D1" = "Eccoci!";
 "S2D2" = "Ciao Yami!";
@@ -26,5 +30,3 @@
 "S2D8" = "Ma pensi sempre a mangiare!? Secondo i nostri Soul Chains lo squarcio dovrebbe essere proprio qui!";
 "S2D9" = "...Notate qualcosa di strano?";
 "S2D10" = "Beh, quel frutto sembra un po' fuori posto... Controlliamo!";
-
-

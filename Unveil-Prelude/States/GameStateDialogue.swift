@@ -33,7 +33,7 @@ class GameStateDialogue: GKState {
     override func willExit(to nextState: GKState) {
         super.willExit(to: nextState)
         lakeDelightScene.dialogueOverlay?.alpha = 0.0
-        lakeDelightScene.dialogueManager.phases.next()
+        DialogueManager.questPhase.next()
     }
     
     

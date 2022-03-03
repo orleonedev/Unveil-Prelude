@@ -6,15 +6,19 @@
   
 */
 
-"This is a Demo Version of Un:Veil" = "This is a Demo Version of Un:Veil";
-"SubheadDemoLine" = "Some Things are not the way they are meant to be in future";
+"This is a Demo Version of Un:Veil" = "This is a Demo Version of Un:Veil.";
+"SubheadDemoLine" = "Some Things are not the way they are meant to be in future.";
 "Tap To Start" = "Tap To Start";
 "Lake Delight" = "Lake Delight";
 "FirstDialogLine" = "Where are Takeo and Felicity? I am the latecomer of the group, usually...";
 "YamiName" = "Yami Akibara";
 "Quest1" = "Lake Delight Mystery";
-"Quest1Description" = "Wait for Takeo and Felicity on Lake Delight's shore";
-"doNotCrossBottom" = "Where I'm going? I should wait for them near the shore";
+"Quest2Description" = "Go near the bush with the strange fruit and investigate.";
+"Quest3Description" = "Now it's time to close the Tearing on the lake.";
+"Quest1Description" = "Wait for Takeo and Felicity on Lake Delight's shore.";
+"doNotCrossBottom" = "Hey but... Where am I going? I should wait for them near the shore.";
+"doNotCrossBottom2" = "Ehrm Yami... The strange bush is right here.";
+"doNotCrossBottom3" = "C'mon man, we gotta close the Tearing!";
 
 "S2D1" = "Here we are!";
 "S2D2" = "Hey Yami!";

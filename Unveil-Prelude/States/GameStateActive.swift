@@ -18,7 +18,7 @@ class GameStateActive: GKState {
     }
 
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        return stateClass is GameStateMenu.Type || stateClass is GameStateDialogue.Type
+        return stateClass is GameStateMenu.Type || stateClass is GameStateDialogue.Type || stateClass is GameStateDialogueEvent.Type || stateClass is GameStatePuzzle.Type
     }
     
     override func didEnter(from previousState: GKState?) {
