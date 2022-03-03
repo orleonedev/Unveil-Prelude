@@ -12,23 +12,17 @@ import GameplayKit
 class MainMenuScene: SKScene {
     
     private var unveilLabel: SKLabelNode?
-    private var buttonNode: SKShapeNode?
     private var tapToStartLabel: SKLabelNode?
-    private var backgroundNode: SKSpriteNode?
     private var mainMenuImage: SKSpriteNode?
     
     override func sceneDidLoad() {
 
         self.unveilLabel = self.childNode(withName: "unveilLabel") as? SKLabelNode
-        self.buttonNode = self.childNode(withName: "buttonNode") as? SKShapeNode
         self.tapToStartLabel = self.childNode(withName: "tapToStartLabel") as? SKLabelNode
         if let taplabel = self.tapToStartLabel {
             taplabel.text = NSLocalizedString("Tap To Start", comment: "tap")
-            
         }
-        self.backgroundNode = self.childNode(withName: "backgroundNode") as? SKSpriteNode
         self.mainMenuImage = self.childNode(withName: "MainMenuImage") as? SKSpriteNode
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>,

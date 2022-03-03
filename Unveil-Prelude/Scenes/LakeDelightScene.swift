@@ -9,7 +9,8 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-class LakeDelightScene: SKScene {
+class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
+    
     
     var dialogueManager: DialogueManager = DialogueManager()
     var scriptInstance: Script?
@@ -19,6 +20,8 @@ class LakeDelightScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     private var player: Player?
+    var felicity: SKSpriteNode?
+    var takeo: SKSpriteNode?
     
     var GameStateMachine: GKStateMachine?
     
@@ -32,6 +35,9 @@ class LakeDelightScene: SKScene {
     var controller: SKNode?
     var interactButton: SKNode?
     let margin: CGFloat = 20.0
+    
+    var eventMapNode: SKTileMapNode?
+    var eventMapNode2: SKTileMapNode?
     
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
@@ -50,13 +56,19 @@ class LakeDelightScene: SKScene {
         self.menuOverlay = childNode(withName: "//menuOverlay")
         self.questTitle = childNode(withName: "//questTitle") as? SKLabelNode
         self.questDescription = childNode(withName: "//questDescription") as? SKLabelNode
+        self.takeo = childNode(withName: "takeo") as? SKSpriteNode
+        self.felicity = childNode(withName: "felicity") as? SKSpriteNode
         
     }
     
     override func didMove(to view: SKView) {
         
+        physicsWorld.contactDelegate = self
+        
         player = childNode(withName: "player") as? Player
+        print(player?.name ?? "what")
         player?.move(.stop)
+        player?.physicsBody?.contactTestBitMask = 3
         
         setupCamera()
         
@@ -75,6 +87,14 @@ class LakeDelightScene: SKScene {
         treeMapNode?.setupMapPhysics()
         let treeMapNode2 = childNode(withName: "TreeMapNode2") as? SKTileMapNode
         treeMapNode2?.setupMapPhysics()
+        
+        eventMapNode = childNode(withName: "EventTileMap1") as? SKTileMapNode
+        eventMapNode?.setupEventMapPhysics(eventName: "event1")
+        
+        eventMapNode2 = childNode(withName: "EventTileMap2") as? SKTileMapNode
+        eventMapNode2?.setupEventMapPhysics(eventName: "event2")
+        
+        
         
         if (GameStateMachine?.enter(GameStateDialogue.self)) != nil{
             updateDialogue()
@@ -208,4 +228,39 @@ class LakeDelightScene: SKScene {
         interactButton?.position = CGPoint(x: (viewRight + margin+10 - insets.right),
                                            y: (viewBottom + insets.bottom - margin/2))
     }
+    
+    func collisionBetween(playerNode: SKNode, eventNode: SKNode) {
+        
+        if eventNode.name == "event1" {
+            eventMapNode?.removeFromParent()
+            player?.stop()
+            GameStateMachine?.enter(GameStateDialogue.self)
+            felicity?.alpha = 1.0
+            takeo?.alpha = 1.0
+            felicity?.run(SKAction.moveTo(y: (player?.position.y)! , duration: 2.0))
+            felicity?.run(SKAction.moveTo(x: (player?.position.x)! - 22, duration: 1.0))
+            takeo?.run(SKAction.moveTo(y: (player?.position.y)! , duration: 2.0))
+            takeo?.run(SKAction.moveTo(x: (player?.position.x)! - 42, duration: 1.0))
+            
+            
+        } else if eventNode.name == "event2" {
+            doNotCrossBottomMap()
+        }
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        guard let nodeA = contact.bodyA.node else { return }
+        guard let nodeB = contact.bodyB.node else { return }
+
+        if nodeA.name == "player" {
+            collisionBetween(playerNode: nodeA, eventNode: nodeB)
+        } else if nodeB.name == "player" {
+            collisionBetween(playerNode: nodeB, eventNode: nodeA)
+        }
+    }
+    
+    func doNotCrossBottomMap(){
+
+    }
+    
 }
