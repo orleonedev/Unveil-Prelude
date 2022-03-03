@@ -38,6 +38,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     
     var eventMapNode: SKTileMapNode?
     var eventMapNode2: SKTileMapNode?
+    var eventMapNode3: SKTileMapNode?
     
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
@@ -94,6 +95,9 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         
         eventMapNode2 = childNode(withName: "EventTileMap2") as? SKTileMapNode
         eventMapNode2?.setupEventMapPhysics(eventName: "event2")
+        
+        eventMapNode3 = childNode(withName: "EventTileMap3") as? SKTileMapNode
+        eventMapNode3?.setupEventMapPhysics(eventName: "event3")
         
         
         
@@ -230,7 +234,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                                            y: (viewBottom + insets.bottom - margin/2))
     }
     
-    func collisionBetween(playerNode: SKNode, eventNode: SKNode) {
+    func beginCollisionBetween(playerNode: SKNode, eventNode: SKNode) {
         
         if eventNode.name == "event1" {
             eventMapNode?.removeFromParent()
@@ -253,6 +257,12 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         } else if eventNode.name == "event2" {
             doNotCrossBottomMap()
         }
+        else if eventNode.name == "event3"{
+            if let button = interactButton?.childNode(withName: "//interact_button") as? SKSpriteNode {
+                button.alpha = 1.0
+                button.texture = SKTexture.init(imageNamed: "interactiontrue")
+            }
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -260,9 +270,20 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         guard let nodeB = contact.bodyB.node else { return }
 
         if nodeA.name == "player" {
-            collisionBetween(playerNode: nodeA, eventNode: nodeB)
+            beginCollisionBetween(playerNode: nodeA, eventNode: nodeB)
         } else if nodeB.name == "player" {
-            collisionBetween(playerNode: nodeB, eventNode: nodeA)
+            beginCollisionBetween(playerNode: nodeB, eventNode: nodeA)
+        }
+    }
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+        guard let nodeA = contact.bodyA.node else { return }
+        guard let nodeB = contact.bodyB.node else { return }
+
+        if nodeA.name == "player" {
+            endCollisionBetween(playerNode: nodeA, eventNode: nodeB)
+        } else if nodeB.name == "player" {
+            endCollisionBetween(playerNode: nodeB, eventNode: nodeA)
         }
     }
     
@@ -272,4 +293,10 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func endCollisionBetween(playerNode: SKNode, eventNode: SKNode){
+        if let button = interactButton?.childNode(withName: "//interact_button") as? SKSpriteNode {
+            button.alpha = 0.3
+            button.texture = SKTexture.init(imageNamed: "pulsanteazione")
+        }
+    }
 }
