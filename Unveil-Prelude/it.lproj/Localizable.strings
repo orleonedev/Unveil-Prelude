@@ -14,7 +14,17 @@
 "YamiName" = "Yami Akibara";
 "Quest1" = "Mistero al Lago Duria";
 "Quest1Description" = "Aspetta Takeo e Felicity sulle sponde del Lago Duria";
-"S2D1" = "Eccoci!";
-"S3D1" = "Ciao Yami!";
-"S3D2" = "Ma sei già qui?";
 "doNotCrossBottom" = "Ma dove sto andando? Dovrei aspettarli vicino le sponde";
+
+"S2D1" = "Eccoci!";
+"S2D2" = "Ciao Yami!";
+"S2D3" = "Ma sei già qui?";
+"S2D4" = "Regolare il tuo orologio un'ora indietro ha funzionato vedo...";
+"S2D5" = "Ah-ah, molto divertente, Takeo.";
+"S2D6" = "La finite di litigare!? E' una splendida giornata... Peccato, sarebbe perfetta per scattare qualche foto...";
+"S2D7" = "...O per fare un delizioso barbecue!";
+"S2D8" = "Ma pensi sempre a mangiare!? Secondo i nostri Soul Chains lo squarcio dovrebbe essere proprio qui!";
+"S2D9" = "...Notate qualcosa di strano?";
+"S2D10" = "Beh, quel frutto sembra un po' fuori posto... Controlliamo!";
+
+

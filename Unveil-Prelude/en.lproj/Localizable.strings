@@ -14,7 +14,15 @@
 "YamiName" = "Yami Akibara";
 "Quest1" = "Lake Delight Mystery";
 "Quest1Description" = "Wait for Takeo and Felicity on Lake Delight's shore";
-"S2D1" = "Here we are!";
-"S3D1" = "Hey Yami!";
-"S3D2" = "You're here already?";
 "doNotCrossBottom" = "Where I'm going? I should wait for them near the shore";
+
+"S2D1" = "Here we are!";
+"S2D2" = "Hey Yami!";
+"S2D3" = "You're here already?";
+"S2D4" = "Turning your clock back an hour worked out...";
+"S2D5" = "Ah-ah, outrageously funny, Takeo.";
+"S2D6" = "Can you stop, please!? It's a wonderful day for taking pictures outdoor... what a pity!";
+"S2D7" = "It would've be a blast to have a BBQ...";
+"S2D8" = "Why is food always in your mind!? Our Soul chains revealed the presence of a Tearing nearby.";
+"S2D9" = "...Do you see something unusual?";
+"S2D10" = "Well, that fruit seems a little bit off... Let's check it!";

@@ -104,5 +104,12 @@ class Player: SKSpriteNode {
     func interact() {
         print("interact")
     }
+    
+    func moveBackUp() {
+        self.removeAllActions()
+        self.isIdle = false
+        self.run(walkBackAnimYami, withKey: "walkBackAnim")
+        self.run(SKAction.sequence([SKAction.moveBy(x: 0.0, y: +32, duration: 1.0), idleAnimYami]))
+    }
 }
 

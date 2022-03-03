@@ -114,7 +114,8 @@ extension SKTileMapNode {
               tileNode.physicsBody?.allowsRotation = false
               tileNode.physicsBody?.isDynamic = false
               
-              tileNode.physicsBody?.categoryBitMask = 3
+              tileNode.physicsBody?.categoryBitMask = 1
+                tileNode.physicsBody?.collisionBitMask = 0
                 tileNode.name = eventName
               
               // Add node

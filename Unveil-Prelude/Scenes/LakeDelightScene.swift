@@ -20,8 +20,8 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     
     private var lastUpdateTime : TimeInterval = 0
     private var player: Player?
-    var felicity: SKSpriteNode?
-    var takeo: SKSpriteNode?
+    private var felicity: FelicityChar?
+    private var takeo: TakeoChar?
     
     var GameStateMachine: GKStateMachine?
     
@@ -56,8 +56,8 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         self.menuOverlay = childNode(withName: "//menuOverlay")
         self.questTitle = childNode(withName: "//questTitle") as? SKLabelNode
         self.questDescription = childNode(withName: "//questDescription") as? SKLabelNode
-        self.takeo = childNode(withName: "takeo") as? SKSpriteNode
-        self.felicity = childNode(withName: "felicity") as? SKSpriteNode
+        
+        
         
     }
     
@@ -69,7 +69,8 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         print(player?.name ?? "what")
         player?.move(.stop)
         player?.physicsBody?.contactTestBitMask = 3
-        
+        felicity = childNode(withName: "Felicity") as? FelicityChar
+        takeo = childNode(withName: "Takeo") as? TakeoChar
         setupCamera()
         
         let grassMapNode = childNode(withName: "GrassMapNode") as? SKTileMapNode
@@ -235,12 +236,18 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
             eventMapNode?.removeFromParent()
             player?.stop()
             GameStateMachine?.enter(GameStateDialogue.self)
-            felicity?.alpha = 1.0
+            
             takeo?.alpha = 1.0
-            felicity?.run(SKAction.moveTo(y: (player?.position.y)! , duration: 2.0))
-            felicity?.run(SKAction.moveTo(x: (player?.position.x)! - 22, duration: 1.0))
-            takeo?.run(SKAction.moveTo(y: (player?.position.y)! , duration: 2.0))
-            takeo?.run(SKAction.moveTo(x: (player?.position.x)! - 42, duration: 1.0))
+            felicity?.alpha = 1.0
+//            let felMoveY = SKAction.moveTo(y: (player?.position.y)!, duration: 2.0)
+//            let felMoveX = SKAction.moveTo(x: (player?.position.x)! - 22, duration: 1.0)
+            felicity?.move(.up, posX: (player?.position.x)! - 22, posY: (player?.position.y)!)
+            
+//            felicity?.run(SKAction.moveTo(y: (player?.position.y)! , duration: 2.0))
+//            felicity?.run(SKAction.moveTo(x: (player?.position.x)! - 22, duration: 1.0))
+//            takeo?.run(SKAction.moveTo(y: (player?.position.y)! , duration: 2.0))
+//            takeo?.run(SKAction.moveTo(x: (player?.position.x)! - 42, duration: 1.0))
+            takeo?.move(.up, posX: (player?.position.x)! - 42, posY: (player?.position.y)!)
             
             
         } else if eventNode.name == "event2" {
@@ -260,7 +267,9 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func doNotCrossBottomMap(){
-
+        player?.stop()
+        player?.moveBackUp()
+        
     }
     
 }

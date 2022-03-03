@@ -1,6 +1,8 @@
 #  Known Issues
 
 - Input troppo rapido (al momento sull'interact button) non permette la visualizzazione del Dialogue Overlay sebbene si entri lo stesso nel DialogueState
+- LaunchScene deve fare fadein fade out 
+- 
 
 # ChangeLog n.2 External
 
