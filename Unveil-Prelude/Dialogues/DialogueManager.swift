@@ -9,8 +9,8 @@ import Foundation
 import GameplayKit
 
 enum QuestPhase: Int, CaseIterable {
-    case start = 0, first, second
-    //,third
+    case start = 0, first, second, third
+//         fourth
     
     mutating func next() {
             let allCases = type(of: self).allCases
@@ -46,7 +46,8 @@ struct Script {
 
 let script1 = Script(dialogues: [s1d1])
 let script2 = Script(dialogues: [s2d1, s2d2, s2d3, s2d4, s2d5, s2d6, s2d7, s2d8, s2d9, s2d10])
-let script3 = Script(dialogues: [])
+let script3 = Script(dialogues: [s3d1, s3d2, s3d3, s3d4])
+//let script4 = Script(dialogues: [])
 
 class DialogueManager {
     
@@ -55,9 +56,7 @@ class DialogueManager {
     
     init(){
         
-        self.scriptStore = [script1,script2
-        //                    ,script3
-        ]
+        self.scriptStore = [script1,script2,script3]
     }
     
     func getScript(numb: QuestPhase)-> Script{

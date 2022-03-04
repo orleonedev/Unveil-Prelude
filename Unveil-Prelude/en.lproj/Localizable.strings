@@ -23,10 +23,16 @@
 "S2D1" = "Here we are!";
 "S2D2" = "Hey Yami!";
 "S2D3" = "You're here already?";
-"S2D4" = "Turning your clock back an hour worked out...";
+"S2D4" = "Turning your clock forward an hour worked out...";
 "S2D5" = "Ah-ah, outrageously funny, Takeo.";
 "S2D6" = "Can you stop, please!? It's a wonderful day for taking pictures outdoor... what a pity!";
 "S2D7" = "It would've be a blast to have a BBQ...";
 "S2D8" = "Why is food always in your mind!? Our Soul chains revealed the presence of a Tearing nearby.";
 "S2D9" = "...Do you see something unusual?";
 "S2D10" = "Well, that fruit seems a little bit off... Let's check it!";
+
+"S3D1" = "Ugh... What a strange smell!";
+"S3D2" = "Maybe it's Yami?";
+"S3D3" = "That fruit definitely appeared due to the Tearing, we can try to restore it thanks to the Soul Chain.";
+"S3D4" = "...And with the Soul Essence we'll get, we can also close the Tearing!";
+

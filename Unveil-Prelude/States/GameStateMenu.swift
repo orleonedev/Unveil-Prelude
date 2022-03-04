@@ -23,6 +23,7 @@ class GameStateMenu: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("menuState")
+        
         lakeDelightScene.menuOverlay?.alpha = 1.0
         lakeDelightScene.questTitle?.text = NSLocalizedString("Quest1", comment: "QuestTitle1")
         
@@ -33,9 +34,11 @@ class GameStateMenu: GKState {
             lakeDelightScene.questDescription?.text = NSLocalizedString("Quest1Description", comment: "phase1")
         case .second:
             lakeDelightScene.questDescription?.text = NSLocalizedString("Quest2Description", comment: "phase2")
-        //case .third:
-       //     lakeDelightScene.questDescription?.text = NSLocalizedString("Quest3Description", comment: "phase3")
-            
+        case .third:
+            lakeDelightScene.questDescription?.text = NSLocalizedString("Quest3Description", comment: "phase3")
+//        case .fourth:
+//            lakeDelightScene.questDescription?.text = NSLocalizedString("Quest3Description", comment: "phase3")
+//
         }
         
         }

@@ -32,6 +32,11 @@ class GameStatePuzzle : GKState {
     override func willExit(to nextState: GKState) {
         super.willExit(to: nextState)
         lakeDelightScene.menuOverlay?.alpha = 0.0
+        lakeDelightScene.eventMapNode3?.removeFromParent()
+        if let button = lakeDelightScene.interactButton?.childNode(withName: "//interact_button") as? SKSpriteNode {
+            button.alpha = 0.3
+            button.texture = SKTexture.init(imageNamed: "pulsanteazione")
+        }
     }
     
 }

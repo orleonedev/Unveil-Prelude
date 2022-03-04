@@ -2,9 +2,16 @@
 
 - Input troppo rapido (al momento sull'interact button) non permette la visualizzazione del Dialogue Overlay sebbene si entri lo stesso nel DialogueState
 - LaunchScene deve fare fadein fade out 
-- 
+-
 
-# ChangeLog n.2 External
+# Nice to Have 
+- ombre agli alberi
+- refinire le box collision
+- levare le alpha mask
+- bush raggruppati per meno collision box
+
+
+# ChangeLog n.2 External 1.0(5)
 
 
 - Improved Game State Machine
@@ -15,7 +22,7 @@
 - Imported a custom font licensed under the Open Font License
 
 
-# ChangeLog n3 External
+# ChangeLog n3 External 1.0(6)
 
 - New App Icon
 - Improved Game State Machine

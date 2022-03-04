@@ -18,7 +18,7 @@ struct Dialogue {
 
 
 let s1d1 = Dialogue(speakerName: "Yami Akibara", speakerImg: "1-yami-think", dialogueText: NSLocalizedString("FirstDialogLine", comment: "Yami1"))
-let s2d1 = Dialogue(speakerName: "", speakerImg: "", dialogueText: NSLocalizedString("S2D1", comment: "Eccoci"))
+let s2d1 = Dialogue(speakerName: "", speakerImg: "transparent", dialogueText: NSLocalizedString("S2D1", comment: "Eccoci"))
 let s2d2 = Dialogue(speakerName: "Felicity Wood", speakerImg: "3-Felicity-happy", dialogueText: NSLocalizedString("S2D2", comment: "Ciao Yami"))
 let s2d3 = Dialogue(speakerName: "Felicity Wood", speakerImg: "3-Felicity-confused", dialogueText: NSLocalizedString("S2D3", comment: "Sei già qui"))
 
@@ -36,6 +36,10 @@ let s2d9 = Dialogue(speakerName: "Felicity Wood", speakerImg: "3-Felicity-confus
 
 let s2d10 = Dialogue(speakerName: "Yami Akibara", speakerImg: "1-yami-normal", dialogueText: NSLocalizedString("S2D10", comment: "proprio li"))
 
+let s3d1 = Dialogue(speakerName: "Felicity Wood", speakerImg: "3-Felicity-confused", dialogueText: NSLocalizedString("S3D1", comment: "puzza"))
+let s3d2 = Dialogue(speakerName: "Takeo Akahiro", speakerImg: "2-Takeo-happy", dialogueText: NSLocalizedString("S3D2", comment: "yami puzza"))
+let s3d3 = Dialogue(speakerName: "Yami Akibara", speakerImg: "1-yami-normal", dialogueText: NSLocalizedString("S3D3", comment: "usiamo il soul chain"))
+let s3d4 = Dialogue(speakerName: "Felicity Wood", speakerImg: "3-Felicity-normal", dialogueText: NSLocalizedString("S3D4", comment: "soul essence per chiudere"))
 
 let uponBottomMarginDialogue: Dialogue = Dialogue(speakerName: "Yami Akibara", speakerImg: "1-yami-think", dialogueText: NSLocalizedString("doNotCrossBottom", comment: "turn aret"))
 let uponBottomMarginDialogue2: Dialogue = Dialogue(speakerName: "Felicity Wood", speakerImg: "3-Felicity-confused", dialogueText: NSLocalizedString("doNotCrossBottom2", comment: "turn aret"))

@@ -40,7 +40,8 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     var eventMapNode2: SKTileMapNode?
     var eventMapNode3: SKTileMapNode?
     
-    var puzzleEnabled: Bool = false
+    var puzzleDialogEnabled: Bool = false
+    var puzzleShow: Bool = false
     
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
@@ -138,9 +139,10 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                 player?.move(Direction(rawValue: direction ?? "stop")!)
             }
             else if (touchedNode as? SKSpriteNode)?.name == "interact_button" {
-                if puzzleEnabled {
-                    GameStateMachine?.enter(GameStatePuzzle.self)
+                if puzzleDialogEnabled {
                     player?.interact()
+                    GameStateMachine?.enter(GameStateDialogue.self)
+                    puzzleDialogEnabled = false
                 }
             }
             else if (touchedNode as? SKSpriteNode)?.name == "menuButton" {
@@ -161,6 +163,10 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                 else {
                     GameStateMachine?.enter(GameStateActive.self)
                     dialogueOverlay?.run(SKAction.fadeOut(withDuration: 0.25))
+                    if puzzleShow {
+                        GameStateMachine?.enter(GameStatePuzzle.self)
+                        puzzleShow = false
+                    }
                 }
             }
         }
@@ -251,10 +257,14 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
             doNotCrossBottomMap()
         }
         else if eventNode.name == "event3"{
-            if let button = interactButton?.childNode(withName: "//interact_button") as? SKSpriteNode {
+            if DialogueManager.questPhase == .second  {
+                if let button = interactButton?.childNode(withName: "//interact_button") as? SKSpriteNode {
                 button.alpha = 1.0
                 button.texture = SKTexture.init(imageNamed: "interactiontrue")
-                puzzleEnabled = true
+                puzzleDialogEnabled = true
+                puzzleShow = true
+            }
+                
             }
         }
     }
@@ -292,7 +302,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         if let button = interactButton?.childNode(withName: "//interact_button") as? SKSpriteNode {
             button.alpha = 0.3
             button.texture = SKTexture.init(imageNamed: "pulsanteazione")
-            puzzleEnabled = false
+            puzzleDialogEnabled = false
         }
     }
 }
