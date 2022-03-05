@@ -1,3 +1,5 @@
+-300 e 300 limite iphone 11 y
+
 #  Known Issues
 
 - Input troppo rapido (al momento sull'interact button) non permette la visualizzazione del Dialogue Overlay sebbene si entri lo stesso nel DialogueState
@@ -5,10 +7,12 @@
 -
 
 # Nice to Have 
+- quando deve partire il dialogo del frutto, far muovere takeo e felicity verso yami
 - ombre agli alberi
 - refinire le box collision
 - levare le alpha mask
 - bush raggruppati per meno collision box
+- mettere un qualcosa vicino le sponde del lago può portare la gente ad andare verso quella posizione, cosi sappiamo dove andrà a triggerare il dialogo = posizione decente di takeo e felicity
 
 
 # ChangeLog n.2 External 1.0(5)

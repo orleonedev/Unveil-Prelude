@@ -29,6 +29,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     var dialogueOverlay: SKNode?
     var menuButton: SKSpriteNode?
     var menuOverlay: SKNode?
+    var puzzleOverlay: SKNode?
     var questTitle: SKLabelNode?
     var questDescription: SKLabelNode?
     
@@ -51,7 +52,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         self.mapLabel = self.childNode(withName: "//mapLabel") as? SKLabelNode
         if let label = self.mapLabel {
             label.text = NSLocalizedString("Lake Delight", comment: "LaKe DeLiGhT")
-            label.run(SKAction.fadeOut(withDuration: 1.0))
+            label.run(SKAction.fadeOut(withDuration: 2.0))
         }
         self.dialogueOverlay = childNode(withName: "//dialogueOveraly")
         self.interactButton = childNode(withName: "interact")
@@ -60,6 +61,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         self.menuOverlay = childNode(withName: "//menuOverlay")
         self.questTitle = childNode(withName: "//questTitle") as? SKLabelNode
         self.questDescription = childNode(withName: "//questDescription") as? SKLabelNode
+        self.puzzleOverlay = childNode(withName: "//puzzleOverlay")
         
     }
     
