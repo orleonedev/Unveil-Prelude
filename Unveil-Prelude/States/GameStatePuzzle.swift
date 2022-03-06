@@ -37,6 +37,12 @@ class GameStatePuzzle : GKState {
         lakeDelightScene.gemmaViola1 = lakeDelightScene.puzzleOverlay?.childNode(withName: "//GemmaViola1") as? SKSpriteNode
         lakeDelightScene.gemmaViola2 = lakeDelightScene.puzzleOverlay?.childNode(withName: "//GemmaViola2") as? SKSpriteNode
         lakeDelightScene.gemmaViola3 = lakeDelightScene.puzzleOverlay?.childNode(withName: "//GemmaViola3") as? SKSpriteNode
+        if let puzzleTitle = lakeDelightScene.puzzleOverlay?.childNode(withName: "//title") as? SKLabelNode {
+            puzzleTitle.text = NSLocalizedString("PuzzleTitle", comment: "titolo")
+        }
+        if let puzzleDesc = lakeDelightScene.puzzleOverlay?.childNode(withName: "//desc") as? SKLabelNode {
+            puzzleDesc.text = NSLocalizedString("PuzzleDescr", comment: "desc")
+        }
         
         lakeDelightScene.changeGemTexture()
         lakeDelightScene.checkPuzzleSolution()

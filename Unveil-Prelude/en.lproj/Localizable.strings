@@ -40,3 +40,5 @@
 "S4D2" = "My Soul Chain is reacting, so it should be nearby...";
 "S4D3" = "There it is, on the lake' shore, no time to lose.";
 
+"PuzzleTitle" = "Change Gems Position";
+"PuzzleDescr" = "Drag gems and release them in the right column showed by the board, so you can restore the original form of the fruit!";
