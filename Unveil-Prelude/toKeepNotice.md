@@ -44,6 +44,12 @@
 - Added Puzzle State and Puzzle Logic
 - New and Improved assets
 - New localized dialogues
+
+
+#ChangeLog n5 External 1.0(8)
+- Improved Physics and hit boxes
+- Improved Puzzle Logic
 - New Ending and Credit Scene
 - New Audio System
-
+- Improved Assets
+-

@@ -11,8 +11,8 @@ import Foundation
 
 class FelicityChar: SKSpriteNode {
     
-    private var walkBackAnimFelicity: SKAction = SKAction(named: "FelicityWalkBackAnim")!
-    private var idleAnimFelicity: SKAction = SKAction(named: "idleFelicity")!
+    var walkBackAnimFelicity: SKAction = SKAction(named: "FelicityWalkBackAnim")!
+    var idleAnimFelicity: SKAction = SKAction(named: "idleFelicity")!
 //    private var idleAnimYami: SKAction = SKAction(named: "Idle")!
 //    private var walkFrontAnimYami: SKAction = SKAction(named: "walkFrontAnim")!
 //    private var walkBackAnimYami: SKAction = SKAction(named: "walkBackAnim")!

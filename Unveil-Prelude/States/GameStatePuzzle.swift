@@ -53,6 +53,7 @@ class GameStatePuzzle : GKState {
         super.willExit(to: nextState)
         lakeDelightScene.puzzleOverlay?.alpha = 0.0
         lakeDelightScene.puzzleShow = false
+        lakeDelightScene.portal?.alpha = 1.0
         lakeDelightScene.eventMapNode3?.removeFromParent()
         if let button = lakeDelightScene.interactButton?.childNode(withName: "//interact_button") as? SKSpriteNode {
             button.alpha = 0.3

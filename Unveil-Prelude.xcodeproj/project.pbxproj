@@ -39,6 +39,9 @@
 		518C490D27C52D9600A71680 /* GameStateActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C490C27C52D9600A71680 /* GameStateActive.swift */; };
 		518C490F27C52DA600A71680 /* GameStateDialogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C490E27C52DA600A71680 /* GameStateDialogue.swift */; };
 		518C491127C52DBD00A71680 /* GameStateMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C491027C52DBD00A71680 /* GameStateMenu.swift */; };
+		5199BAA127D562E100CDF347 /* GameStateEndCut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5199BAA027D562E100CDF347 /* GameStateEndCut.swift */; };
+		5199BAA327D5762300CDF347 /* BedroomScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5199BAA227D5762300CDF347 /* BedroomScene.sks */; };
+		5199BAA527D5774400CDF347 /* BedroomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5199BAA427D5774400CDF347 /* BedroomScene.swift */; };
 		51A8442327CF59260031DCF5 /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51A8442227CF59260031DCF5 /* VT323-Regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +82,9 @@
 		518C490C27C52D9600A71680 /* GameStateActive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateActive.swift; sourceTree = "<group>"; };
 		518C490E27C52DA600A71680 /* GameStateDialogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateDialogue.swift; sourceTree = "<group>"; };
 		518C491027C52DBD00A71680 /* GameStateMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateMenu.swift; sourceTree = "<group>"; };
+		5199BAA027D562E100CDF347 /* GameStateEndCut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateEndCut.swift; sourceTree = "<group>"; };
+		5199BAA227D5762300CDF347 /* BedroomScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BedroomScene.sks; sourceTree = "<group>"; };
+		5199BAA427D5774400CDF347 /* BedroomScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomScene.swift; sourceTree = "<group>"; };
 		51A8442227CF59260031DCF5 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
 		51A8442427CF59EF0031DCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		51A8442A27CF89A20031DCF5 /* toKeepNotice.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = toKeepNotice.md; sourceTree = "<group>"; };
@@ -148,6 +154,7 @@
 				518C491027C52DBD00A71680 /* GameStateMenu.swift */,
 				5135C66927D16C2900F34002 /* GameStateDialogueEvent.swift */,
 				5135C66B27D16CEC00F34002 /* GameStatePuzzle.swift */,
+				5199BAA027D562E100CDF347 /* GameStateEndCut.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -189,6 +196,8 @@
 				5115DA8027BF8EC800549878 /* MainMenuScene.sks */,
 				5115DA8C27BFA9F500549878 /* LakeDelightScene.swift */,
 				5115DA8827BF9EED00549878 /* LakeDelightScene.sks */,
+				5199BAA227D5762300CDF347 /* BedroomScene.sks */,
+				5199BAA427D5774400CDF347 /* BedroomScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -279,6 +288,7 @@
 				5169878927D3D36800E98B78 /* PuzzleScene.sks in Resources */,
 				5115DA7127BF7F1C00549878 /* Main.storyboard in Resources */,
 				514A15CE27C8CA09008C821C /* Localizable.strings in Resources */,
+				5199BAA327D5762300CDF347 /* BedroomScene.sks in Resources */,
 				5169878C27D4196C00E98B78 /* Gems.sks in Resources */,
 				5115DA8127BF8EC800549878 /* MainMenuScene.sks in Resources */,
 				5115DA9327BFB2B600549878 /* Controller.sks in Resources */,
@@ -303,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5115DA8327BF8F7F00549878 /* MainMenuScene.swift in Sources */,
+				5199BAA527D5774400CDF347 /* BedroomScene.swift in Sources */,
 				51177E9327CD3B27003E2833 /* DialogueManager.swift in Sources */,
 				5115DA8F27BFAA3A00549878 /* SKTileMapNode+Physics.swift in Sources */,
 				5115DA6E27BF7F1C00549878 /* GameViewController.swift in Sources */,
@@ -312,6 +323,7 @@
 				51177E9527CD3B7E003E2833 /* Dialogue.swift in Sources */,
 				518C491127C52DBD00A71680 /* GameStateMenu.swift in Sources */,
 				51742F8F27D0D623003D929B /* TakeoChar.swift in Sources */,
+				5199BAA127D562E100CDF347 /* GameStateEndCut.swift in Sources */,
 				5115DA8D27BFA9F500549878 /* LakeDelightScene.swift in Sources */,
 				5135C66C27D16CEC00F34002 /* GameStatePuzzle.swift in Sources */,
 				518C490D27C52D9600A71680 /* GameStateActive.swift in Sources */,
