@@ -37,5 +37,13 @@
 - Secondary characters now showing on the scene
 - Improved animation for character sprites
 
-
+#ChangeLog n4 External 1.0(7)
+- Improved App Icon
+- Improved Game State Machine
+- Improved Objects Physics
+- Added Puzzle State and Puzzle Logic
+- New and Improved assets
+- New localized dialogues
+- New Ending and Credit Scene
+- New Audio System
 

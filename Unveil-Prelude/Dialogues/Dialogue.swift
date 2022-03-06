@@ -41,6 +41,10 @@ let s3d2 = Dialogue(speakerName: "Takeo Akahiro", speakerImg: "2-Takeo-happy", d
 let s3d3 = Dialogue(speakerName: "Yami Akibara", speakerImg: "1-yami-normal", dialogueText: NSLocalizedString("S3D3", comment: "usiamo il soul chain"))
 let s3d4 = Dialogue(speakerName: "Felicity Wood", speakerImg: "3-Felicity-normal", dialogueText: NSLocalizedString("S3D4", comment: "soul essence per chiudere"))
 
+let s4d1 = Dialogue(speakerName: "Felicity Wood", speakerImg: "3-Felicity-happy", dialogueText: NSLocalizedString("S4D1", comment: "abbiamo la soul"))
+let s4d2 = Dialogue(speakerName: "Yami Akibara", speakerImg: "1-yami-think", dialogueText: NSLocalizedString("S4D2", comment: "mi sta suonando"))
+let s4d3 = Dialogue(speakerName: "Takeo Akahiro", speakerImg: "2-Takeo-serious", dialogueText: NSLocalizedString("S4D3", comment: "annamo"))
+
 let uponBottomMarginDialogue: Dialogue = Dialogue(speakerName: "Yami Akibara", speakerImg: "1-yami-think", dialogueText: NSLocalizedString("doNotCrossBottom", comment: "turn aret"))
 
 let uponBottomMarginDialogue2: Dialogue = Dialogue(speakerName: "Felicity Wood", speakerImg: "3-Felicity-confused", dialogueText: NSLocalizedString("doNotCrossBottom2", comment: "turn aret"))

@@ -43,6 +43,17 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     
     var puzzleDialogEnabled: Bool = false
     var puzzleShow: Bool = false
+    var currentNode: SKSpriteNode?
+    var startPosition: CGPoint?
+    var gemmaRossa1: SKSpriteNode?
+    var gemmaRossa2: SKSpriteNode?
+    var gemmaRossa3: SKSpriteNode?
+    var gemmaVerde1: SKSpriteNode?
+    var gemmaVerde2: SKSpriteNode?
+    var gemmaVerde3: SKSpriteNode?
+    var gemmaViola1: SKSpriteNode?
+    var gemmaViola2: SKSpriteNode?
+    var gemmaViola3: SKSpriteNode?
     
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
@@ -133,8 +144,10 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     
     
     func touchDown(atPoint pos : CGPoint) {
+        
         let nodeAtPoint = atPoint(pos)
         if let touchedNode = nodeAtPoint as? SKNode  {
+            
             if (touchedNode as? SKSpriteNode)?.name?.starts(with: "controller_") == true {
                 let direction = touchedNode.name?.replacingOccurrences(
                     of: "controller_", with: "")
@@ -164,10 +177,10 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                 }
                 else {
                     GameStateMachine?.enter(GameStateActive.self)
-                    dialogueOverlay?.run(SKAction.fadeOut(withDuration: 0.25))
+                   // dialogueOverlay?.run(SKAction.fadeOut(withDuration: 1.0))
                     if puzzleShow {
                         GameStateMachine?.enter(GameStatePuzzle.self)
-                        puzzleShow = false
+                        
                     }
                 }
             }
@@ -195,18 +208,84 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        
+        if GameStateMachine?.currentState is GameStatePuzzle{
+            
+            if let touch = touches.first {
+                let location = touch.location(in: self)
+                let nodeAtPoint = atPoint(location)
+                if let touchedNode = nodeAtPoint as? SKSpriteNode{
+                    if touchedNode.name?.starts(with: "Gemma") == true {
+                        print(touchedNode.position)
+                        self.currentNode = touchedNode
+                        self.currentNode?.zPosition = 100
+                        self.startPosition = currentNode?.position
+                        
+                    }
+                }
+            }
+        }
+            for t in touches { self.touchDown(atPoint: t.location(in: self))}
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if GameStateMachine?.currentState is GameStatePuzzle {
+            if let touch = touches.first, let node = self.currentNode {
+                let touchLocation = touch.location(in: self)
+                node.position = touchLocation
+                
+            }
+        }
         for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if GameStateMachine?.currentState is GameStatePuzzle {
+
+            if let touch = touches.first {
+                let location = touch.location(in: self)
+                var foundYeOldSwitcheroo = false
+                let touchedNodes = self.nodes(at: location)
+                    for node in touchedNodes {
+                        
+                        if(node.name?.starts(with: "Gemma") == true && node.name != self.currentNode?.name){
+                            
+                            if let posizioneIniziale = startPosition {
+                                
+                                self.currentNode?.position = node.position
+                                self.currentNode?.zPosition = 50
+                                node.position = posizioneIniziale
+                                foundYeOldSwitcheroo = true
+                                
+                            }
+                            print("Cambia texture")
+                            changeGemTexture()
+                            
+                            print("Check solution")
+                            checkPuzzleSolution()
+                            break
+                        }
+                        
+                    }
+                if !foundYeOldSwitcheroo {
+                    self.currentNode?.position = startPosition!
+                    self.currentNode?.zPosition = 50
+                }
+                
+            }
+            self.currentNode = nil
+            self.startPosition = nil
+        }
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if GameStateMachine?.currentState is GameStatePuzzle {
+            let node = self.currentNode
+            node?.position = startPosition!
+            self.currentNode = nil
+            self.startPosition = nil
+        }
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
@@ -306,5 +385,84 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
             button.texture = SKTexture.init(imageNamed: "pulsanteazione")
             puzzleDialogEnabled = false
         }
+    }
+    
+    func changeGemTexture(){
+//      Texture gemme Rosse
+
+        if (gemmaRossa1?.position.x == -160.0){
+            gemmaRossa1?.run(SKAction.sequence([SKAction(named: "RedTurningOn")!,SKAction(named: "RedFlashing")!]))
+        }
+        else{
+            gemmaRossa1?.removeAllActions()
+        }
+        if (gemmaRossa2?.position.x == -160.0){
+            gemmaRossa2?.run(SKAction.sequence([SKAction(named: "RedTurningOn")!,SKAction(named: "RedFlashing")!]))
+        }
+        else{
+            gemmaRossa2?.removeAllActions()
+        }
+        if (gemmaRossa3?.position.x == -160.0){
+            gemmaRossa3?.run(SKAction.sequence([SKAction(named: "RedTurningOn")!,SKAction(named: "RedFlashing")!]))
+        }
+        else{
+            gemmaRossa3?.removeAllActions()
+        }
+        
+//      Texture gemme Verdi
+        if (gemmaVerde1?.position.x == 0.0){
+            gemmaVerde1?.run(SKAction.sequence([SKAction(named: "GreenTurningOn")!,SKAction(named: "GreenFlashing")!]))
+        }
+        else{
+            gemmaVerde1?.removeAllActions()
+        }
+        if (gemmaVerde2?.position.x == 0.0){
+            gemmaVerde2?.run(SKAction.sequence([SKAction(named: "GreenTurningOn")!,SKAction(named: "GreenFlashing")!]))
+        }
+        else{
+            gemmaVerde2?.removeAllActions()
+        }
+        if (gemmaVerde3?.position.x == 0.0){
+            gemmaVerde3?.run(SKAction.sequence([SKAction(named: "GreenTurningOn")!,SKAction(named: "GreenFlashing")!]))
+        }
+        else{
+            gemmaVerde3?.removeAllActions()
+        }
+//      Texture gemme Blu
+
+        if (gemmaViola1?.position.x == 160.0){
+            gemmaViola1?.run(SKAction.sequence([SKAction(named: "VioletTurningOn")!,SKAction(named: "VioletFlashing")!]))
+        }
+        else{
+            gemmaViola1?.removeAllActions()
+        }
+        if (gemmaViola2?.position.x == 160.0){
+            gemmaViola2?.run(SKAction.sequence([SKAction(named: "VioletTurningOn")!,SKAction(named: "VioletFlashing")!]))
+        }
+        else{
+            gemmaViola2?.removeAllActions()
+        }
+        if (gemmaViola3?.position.x == 160.0){
+            gemmaViola3?.run(SKAction.sequence([SKAction(named: "VioletTurningOn")!,SKAction(named: "VioletFlashing")!]))
+        }
+        else{
+            gemmaViola3?.removeAllActions()
+        }
+        
+    }
+    
+    func checkPuzzleSolution(){
+//        Controllo delle posizioni di tutte le gemme
+        
+        print("Check interno solution")
+        
+        if (gemmaVerde1?.position.x == 0.0 && gemmaVerde2?.position.x == 0.0 && gemmaVerde3?.position.x == 0.0 &&
+            gemmaRossa1?.position.x == -160.0 && gemmaRossa2?.position.x == -160.0 && gemmaRossa3?.position.x == -160.0)
+        {
+//          Cosa fare quando il puzzle è risolto
+            print("risolto")
+            GameStateMachine?.enter(GameStateDialogue.self)
+        }
+        
     }
 }

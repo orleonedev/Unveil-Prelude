@@ -24,7 +24,7 @@ class GameStateDialogueEvent: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("Dialogue State")
-        lakeDelightScene.dialogueOverlay?.alpha = 1.0
+        lakeDelightScene.dialogueOverlay?.run(SKAction.fadeIn(withDuration: 0.3))
         switch DialogueManager.questPhase{
         case .start:
         lakeDelightScene.dialogueInstance = uponBottomMarginDialogue
@@ -34,13 +34,15 @@ class GameStateDialogueEvent: GKState {
             lakeDelightScene.dialogueInstance = uponBottomMarginDialogue2
         case .third:
             lakeDelightScene.dialogueInstance = uponBottomMarginDialogue3
+        case .fourth:
+            lakeDelightScene.dialogueInstance = uponBottomMarginDialogue3
         }
         lakeDelightScene.updateDialogue()
         }
     
     override func willExit(to nextState: GKState) {
         super.willExit(to: nextState)
-        lakeDelightScene.dialogueOverlay?.alpha = 0.0
+        lakeDelightScene.dialogueOverlay?.run(SKAction.fadeOut(withDuration: 0.3))
         
     }
     
