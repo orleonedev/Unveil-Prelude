@@ -1,15 +1,15 @@
 //
-//  DemoLaunchView.swift
+//  EndingScene.swift
 //  Unveil-Prelude
 //
-//  Created by Oreste Leone on 18/02/22.
+//  Created by Oreste Leone on 07/03/22.
 //
 
 import Foundation
 import SpriteKit
 import GameplayKit
 
-class DemoLaunchScene: SKScene {
+class EndingScene: SKScene {
     
     private var firstLabel : SKLabelNode?
     private var subheadLabel : SKLabelNode?
@@ -17,20 +17,19 @@ class DemoLaunchScene: SKScene {
     private var dragonflies: SKLabelNode?
     private var special: SKLabelNode?
     private var bgNode: SKSpriteNode?
+    private var team: SKLabelNode?
     
     override func sceneDidLoad() {
         
         self.firstLabel = self.childNode(withName: "firstLabel") as? SKLabelNode
         if let firstLabel = self.firstLabel {
-            firstLabel.text = NSLocalizedString("This is a Demo Version of", comment: "Demo Version")
+            firstLabel.text = NSLocalizedString("Thanksforplaying", comment: "Thanks")
             firstLabel.alpha = 0.0
-            firstLabel.run(SKAction.sequence([SKAction.fadeIn(withDuration: 2.0),SKAction.wait(forDuration: 5.0),SKAction.run {
-                self.sceneTouched(touchLocation: CGPoint())
-            }]))
+            firstLabel.run(SKAction.fadeIn(withDuration: 2.0))
         }
         self.subheadLabel = self.childNode(withName: "subheadLabel") as? SKLabelNode
         if let subheadLabel = self.subheadLabel {
-            subheadLabel.text = NSLocalizedString("SubheadDemoLine", comment: "subhead")
+            subheadLabel.text = NSLocalizedString("thanksSubhead", comment: "subhead")
             
             subheadLabel.alpha = 0.0
             subheadLabel.run(SKAction.fadeIn(withDuration: 2.0))
@@ -51,6 +50,11 @@ class DemoLaunchScene: SKScene {
         if let specialLabel = self.special {
             specialLabel.alpha = 0.0
             specialLabel.run(SKAction.fadeIn(withDuration: 2.0))
+        }
+        self.team = self.childNode(withName: "team") as? SKLabelNode
+        if let teamlabel = self.team {
+            teamlabel.alpha = 0.0
+            teamlabel.run(SKAction.fadeIn(withDuration: 2.0))
         }
         self.bgNode = self.childNode(withName: "bgNode") as? SKSpriteNode
         
@@ -74,9 +78,12 @@ class DemoLaunchScene: SKScene {
         if let spec = self.special {
             spec.run(SKAction.fadeOut(withDuration: 2.0))
         }
+        if let team = self.team {
+            team.run(SKAction.fadeOut(withDuration: 2.0))
+        }
         
-        if let nextScene = GKScene(fileNamed: "MainMenuScene") {
-            if let nextSceneNode = nextScene.rootNode as! MainMenuScene? {
+        if let nextScene = GKScene(fileNamed: "DemoLaunchScene") {
+            if let nextSceneNode = nextScene.rootNode as! DemoLaunchScene? {
                 nextSceneNode.scaleMode = .aspectFill
                 view?.presentScene(nextSceneNode, transition: .fade(withDuration: 2.0))
             }

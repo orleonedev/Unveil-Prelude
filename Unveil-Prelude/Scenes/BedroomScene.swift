@@ -57,8 +57,8 @@ class BedroomScene: SKScene {
         }
         
         else {
-            if let nextScene = GKScene(fileNamed: "MainMenuScene") {
-                if let nextSceneNode = nextScene.rootNode as! MainMenuScene? {
+            if let nextScene = GKScene(fileNamed: "EndingScene") {
+                if let nextSceneNode = nextScene.rootNode as! EndingScene? {
                     nextSceneNode.scaleMode = .aspectFill
                     view?.presentScene(nextSceneNode, transition: .fade(withDuration: 2.0))
                 }

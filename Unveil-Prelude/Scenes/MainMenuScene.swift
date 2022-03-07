@@ -19,15 +19,15 @@ class MainMenuScene: SKScene {
         
         SKTAudio.sharedInstance().backgroundMusicPlayer?.volume = 0.0
         SKTAudio.sharedInstance().playBackgroundMusic("Mysterio.mp3")
-        SKTAudio.sharedInstance().backgroundMusicPlayer?.setVolume(0.8, fadeDuration: 1.0)
+        SKTAudio.sharedInstance().backgroundMusicPlayer?.setVolume(0.6, fadeDuration: 1.0)
         self.unveilLabel = self.childNode(withName: "unveilLabel") as? SKLabelNode
         self.tapToStartLabel = self.childNode(withName: "tapToStartLabel") as? SKLabelNode
         if let taplabel = self.tapToStartLabel {
             taplabel.text = NSLocalizedString("Tap To Start", comment: "tap")
-            taplabel.run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeIn(withDuration: 2.0), SKAction.fadeOut(withDuration: 2.0)])))
+            taplabel.run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeOut(withDuration: 1.5), SKAction.fadeIn(withDuration: 1.5)])))
         }
         if let blur2 = self.childNode(withName: "//blur2") as? SKSpriteNode{
-            blur2.run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeAlpha(to: 0.4, duration: 2.0), SKAction.fadeAlpha(to: 0.0, duration: 2.0)])))
+            blur2.run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeAlpha(to: 0.0, duration: 1.5), SKAction.fadeAlpha(to: 0.4, duration: 1.5)])))
         }
         self.mainMenuImage = self.childNode(withName: "MainMenuImage") as? SKSpriteNode
     }

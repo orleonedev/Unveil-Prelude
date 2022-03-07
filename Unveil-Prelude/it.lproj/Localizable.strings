@@ -6,8 +6,8 @@
   
 */
 
-"This is a Demo Version of Un:Veil" = "Questa è una versione Demo di Un:Veil.";
-"SubheadDemoLine" = "Alcune cose non sono rappresentate come saranno in futuro.";
+"This is a Demo Version of" = "Questa è una versione Demo di";
+"SubheadDemoLine" = "Sono mostrate solo alcune feature e le stesse non sono una rappresentazione dello stato finale e direzione del progetto.";
 "Tap To Start" = "Tocca per Iniziare";
 "Lake Delight" = "Lago Duria";
 "FirstDialogLine" = "Dove sono Takeo e Felicity? In genere sono io il ritardatario del gruppo...";
@@ -45,3 +45,6 @@
 
 
 "endCut" = "Woah... Ma cos era? Un sogno?";
+
+"Thanksforplaying" = "Grazie per aver giocato ad";
+"thanksSubhead" = "Apprezziamo davvero il tempo dedicatoci e speriamo che ci seguirete per sapere cosa seguirà dopo!";
