@@ -21,6 +21,10 @@ class MainMenuScene: SKScene {
         self.tapToStartLabel = self.childNode(withName: "tapToStartLabel") as? SKLabelNode
         if let taplabel = self.tapToStartLabel {
             taplabel.text = NSLocalizedString("Tap To Start", comment: "tap")
+            taplabel.run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeIn(withDuration: 2.0), SKAction.fadeOut(withDuration: 2.0)])))
+        }
+        if let blur2 = self.childNode(withName: "//blur2") as? SKSpriteNode{
+            blur2.run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeAlpha(to: 0.4, duration: 2.0), SKAction.fadeAlpha(to: 0.0, duration: 2.0)])))
         }
         self.mainMenuImage = self.childNode(withName: "MainMenuImage") as? SKSpriteNode
     }

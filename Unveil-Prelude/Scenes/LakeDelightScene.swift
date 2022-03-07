@@ -27,6 +27,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     
     private var mapLabel: SKLabelNode?
     var dialogueOverlay: SKNode?
+    var frecciaDialogo: SKSpriteNode?
     var menuButton: SKSpriteNode?
     var menuOverlay: SKNode?
     var puzzleOverlay: SKNode?
@@ -77,6 +78,10 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         self.questDescription = childNode(withName: "//questDescription") as? SKLabelNode
         self.puzzleOverlay = childNode(withName: "//puzzleOverlay")
         self.portal = childNode(withName: "Tearing") as? SKSpriteNode
+        self.frecciaDialogo = childNode(withName: "//frecciaDialogo") as? SKSpriteNode
+        if let freccetta = self.frecciaDialogo {
+            freccetta.run(SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: 0.0, y: -10.0, duration: 0.5),SKAction.moveBy(x: 0.0, y: 10.0, duration: 0.5)])))
+        }
         
     }
     
@@ -166,13 +171,13 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                 if puzzleDialogEnabled {
                     player?.interact()
                     
-                    felicity?.run(SKAction(named: "FelicityWalkBackAnim")!)
+                    felicity?.run(SKAction(named: "FelicityWalkFrontAnim")!)
                     felicity?.run(SKAction.sequence([
-                        SKAction.move(to: CGPoint(x: (player?.position.x)! - 32 , y: (player?.position.y)!), duration: 2.0),
+                        SKAction.move(to: CGPoint(x: (player?.position.x)! - 28 , y: (player?.position.y)!), duration: 2.0),
                                                       SKAction(named: "idleFelicity")!
                     ]))
                     
-                    takeo?.run(SKAction(named: "TakeoWalkBackAnim")!)
+                    takeo?.run(SKAction(named: "TakeoWalkFrontAnim")!)
                     takeo?.run(SKAction.sequence([
                         SKAction.move(to: CGPoint(x: (player?.position.x)! - 48 , y: (player?.position.y)!), duration: 2.0),
                                                       SKAction(named: "idleTakeo")!
@@ -391,7 +396,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                 ]))
                 felicity?.run(SKAction(named: "FelicityWalkBackAnim")!)
                 felicity?.run(SKAction.sequence([
-                    SKAction.move(to: CGPoint(x: 0.0 , y: 100-16  ), duration: 2.5),
+                    SKAction.move(to: CGPoint(x: 0.0 , y: 100-16  ), duration: 2.2),
                                                   SKAction(named: "idleFelicity")!
                 ]))
                 

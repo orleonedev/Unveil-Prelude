@@ -21,26 +21,29 @@ class DemoLaunchScene: SKScene {
         if let firstLabel = self.firstLabel {
             firstLabel.text = NSLocalizedString("This is a Demo Version of Un:Veil", comment: "Demo Version")
             firstLabel.alpha = 0.0
-            firstLabel.run(SKAction.fadeIn(withDuration: 1.0))
+            firstLabel.run(SKAction.sequence([SKAction.fadeIn(withDuration: 2.0),SKAction.wait(forDuration: 1.0),SKAction.run {
+                self.sceneTouched(touchLocation: CGPoint())
+            }]))
         }
         self.subheadLabel = self.childNode(withName: "subheadLabel") as? SKLabelNode
         if let subheadLabel = self.subheadLabel {
             subheadLabel.text = NSLocalizedString("SubheadDemoLine", comment: "subhead")
             
             subheadLabel.alpha = 0.0
-            subheadLabel.run(SKAction.fadeIn(withDuration: 1.0))
+            subheadLabel.run(SKAction.fadeIn(withDuration: 2.0))
         }
         self.bgNode = self.childNode(withName: "bgNode") as? SKSpriteNode
+        
         
     }
     
     
     func sceneTouched(touchLocation:CGPoint) {
         if let label = self.firstLabel {
-            label.run(SKAction.fadeOut(withDuration: 1.0))
+            label.run(SKAction.fadeOut(withDuration: 2.0))
         }
         if let label2 = self.subheadLabel {
-            label2.run(SKAction.fadeOut(withDuration: 1.0))
+            label2.run(SKAction.fadeOut(withDuration: 2.0))
         }
         if let nextScene = GKScene(fileNamed: "MainMenuScene") {
             if let nextSceneNode = nextScene.rootNode as! MainMenuScene? {
