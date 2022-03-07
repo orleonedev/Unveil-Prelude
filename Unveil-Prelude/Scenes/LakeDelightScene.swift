@@ -17,6 +17,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     var dialogueInstance: Dialogue?
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
+    let audioInstance = SKTAudio.sharedInstance()
     
     private var lastUpdateTime : TimeInterval = 0
     private var player: Player?
@@ -61,6 +62,8 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
+        
+        
         GameStateMachine = GKStateMachine(states: [GameStateActive(scene: self),GameStateDialogue(scene: self),GameStateMenu(scene: self),GameStatePuzzle(scene: self), GameStateDialogueEvent(scene: self), GameStateEndCut(scene: self)])
         GameStateMachine?.enter(GameStateActive.self)
         
@@ -86,16 +89,57 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        audioInstance.playBackgroundMusic("LakeDelightTheme.mp3")
+        audioInstance.backgroundMusicPlayer?.volume = 0.0
+        audioInstance.backgroundMusicPlayer?.setVolume(0.8, fadeDuration: 0.5)
+        audioInstance.playBackgroundMusic2("LakeDelightpuzzle.mp3")
+        audioInstance.backgroundMusicPlayer2?.volume = 0.0
         
         physicsWorld.contactDelegate = self
         
         player = childNode(withName: "player") as? Player
-        print(player?.name ?? "what")
+        player?.physicsBody = player?.charPhysicsBody
+        player?.physicsBody?.affectedByGravity = false
+        player?.physicsBody?.allowsRotation = false
+        player?.physicsBody?.pinned = false
+        player?.physicsBody?.friction = 0.0
+        player?.physicsBody?.restitution = 0.0
+        player?.physicsBody?.linearDamping = 0.0
+        player?.physicsBody?.angularDamping = 0.0
+        player?.physicsBody?.categoryBitMask = 1
+        player?.physicsBody?.collisionBitMask = 3
+        player?.physicsBody?.contactTestBitMask = 4
+        
         player?.move(.stop)
         player?.physicsBody?.contactTestBitMask = 4
         
         felicity = childNode(withName: "Felicity") as? FelicityChar
+        felicity?.physicsBody = felicity?.charPhysicsBody
+        felicity?.physicsBody?.affectedByGravity = false
+        felicity?.physicsBody?.allowsRotation = false
+        felicity?.physicsBody?.pinned = false
+        felicity?.physicsBody?.friction = 0.0
+        felicity?.physicsBody?.restitution = 0.0
+        felicity?.physicsBody?.linearDamping = 0.0
+        felicity?.physicsBody?.angularDamping = 0.0
+        felicity?.physicsBody?.isDynamic = false
+        felicity?.physicsBody?.categoryBitMask = 1
+        felicity?.physicsBody?.collisionBitMask = 3
+        felicity?.physicsBody?.contactTestBitMask = 4
+        
         takeo = childNode(withName: "Takeo") as? TakeoChar
+        takeo?.physicsBody = takeo?.charPhysicsBody
+        takeo?.physicsBody?.affectedByGravity = false
+        takeo?.physicsBody?.allowsRotation = false
+        takeo?.physicsBody?.pinned = false
+        takeo?.physicsBody?.friction = 0.0
+        takeo?.physicsBody?.restitution = 0.0
+        takeo?.physicsBody?.linearDamping = 0.0
+        takeo?.physicsBody?.angularDamping = 0.0
+        takeo?.physicsBody?.isDynamic = false
+        takeo?.physicsBody?.categoryBitMask = 1
+        takeo?.physicsBody?.collisionBitMask = 3
+        takeo?.physicsBody?.contactTestBitMask = 4
         
         portal?.run(SKAction(named: "portalAnim")!)
         setupCamera()
@@ -354,8 +398,10 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
             eventMapNode?.removeFromParent()
             player?.stop()
             GameStateMachine?.enter(GameStateDialogue.self)
+            takeo?.position = CGPoint(x: -42, y: -32)
             takeo?.alpha = 1.0
             felicity?.alpha = 1.0
+            takeo?.position = CGPoint(x: -16, y: -32)
             felicity?.move(.up, posX: (player?.position.x)! - 22, posY: (player?.position.y)!)
             takeo?.move(.up, posX: (player?.position.x)! - 48, posY: (player?.position.y)!)
             

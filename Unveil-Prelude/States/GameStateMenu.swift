@@ -23,7 +23,7 @@ class GameStateMenu: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("menuState")
-        
+        lakeDelightScene.audioInstance.backgroundMusicPlayer?.setVolume(0.3, fadeDuration: 0.5)
         lakeDelightScene.menuOverlay?.alpha = 1.0
         lakeDelightScene.questTitle?.text = NSLocalizedString("Quest1", comment: "QuestTitle1")
         
@@ -46,6 +46,7 @@ class GameStateMenu: GKState {
     override func willExit(to nextState: GKState) {
         super.willExit(to: nextState)
         lakeDelightScene.menuOverlay?.alpha = 0.0
+        lakeDelightScene.audioInstance.backgroundMusicPlayer?.setVolume(0.8, fadeDuration: 0.5)
     }
     
 }

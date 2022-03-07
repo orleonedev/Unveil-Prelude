@@ -16,7 +16,10 @@ class MainMenuScene: SKScene {
     private var mainMenuImage: SKSpriteNode?
     
     override func sceneDidLoad() {
-
+        
+        SKTAudio.sharedInstance().backgroundMusicPlayer?.volume = 0.0
+        SKTAudio.sharedInstance().playBackgroundMusic("Mysterio.mp3")
+        SKTAudio.sharedInstance().backgroundMusicPlayer?.setVolume(0.8, fadeDuration: 1.0)
         self.unveilLabel = self.childNode(withName: "unveilLabel") as? SKLabelNode
         self.tapToStartLabel = self.childNode(withName: "tapToStartLabel") as? SKLabelNode
         if let taplabel = self.tapToStartLabel {
@@ -51,7 +54,7 @@ class MainMenuScene: SKScene {
 //        let nodeAtPoint = atPoint(touchLocation)
 //        if let touchedNode = nodeAtPoint as? SKLabelNode {
 //            if touchedNode.name?.starts(with: "tapToStart") == true{
-                
+        SKTAudio.sharedInstance().backgroundMusicPlayer?.stop()
                 if let nextScene = GKScene(fileNamed: "LakeDelightScene") {
                     if let nextSceneNode = nextScene.rootNode as! LakeDelightScene? {
                         nextSceneNode.scaleMode = .resizeFill

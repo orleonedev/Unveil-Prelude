@@ -11,10 +11,13 @@ import GameplayKit
 
 class BedroomScene: SKScene {
     
+    var audioInstance = SKTAudio.sharedInstance()
     var dialogueOverlay: SKNode?
     var dialogue: Dialogue = Dialogue(speakerName: "Yami Akibara", speakerImg: "1-yami-think", dialogueText: NSLocalizedString("endCut", comment: "woah"))
     var frecciaDialogo: SKSpriteNode?
+    
     override func sceneDidLoad() {
+        
         
         dialogueOverlay = childNode(withName: "//dialogueNode")
         
@@ -34,6 +37,7 @@ class BedroomScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        
         
     }
     

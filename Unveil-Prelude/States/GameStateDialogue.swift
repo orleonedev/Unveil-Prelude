@@ -24,6 +24,7 @@ class GameStateDialogue: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("Dialogue State")
+        lakeDelightScene.audioInstance.backgroundMusicPlayer?.setVolume(0.3, fadeDuration: 0.5)
         lakeDelightScene.dialogueOverlay?.run(SKAction.fadeIn(withDuration: 0.3))
         lakeDelightScene.scriptInstance = lakeDelightScene.dialogueManager.getNextScript()
         lakeDelightScene.dialogueInstance = lakeDelightScene.scriptInstance?.getDialogue(numb: 0)
@@ -32,6 +33,7 @@ class GameStateDialogue: GKState {
     
     override func willExit(to nextState: GKState) {
         super.willExit(to: nextState)
+        lakeDelightScene.audioInstance.backgroundMusicPlayer?.setVolume(0.8, fadeDuration: 0.5)
         lakeDelightScene.dialogueOverlay?.run(SKAction.fadeOut(withDuration: 0.3))
         DialogueManager.questPhase.next()
     }

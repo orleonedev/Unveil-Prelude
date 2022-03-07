@@ -22,6 +22,9 @@ class GameStatePuzzle : GKState {
     }
     
     override func didEnter(from previousState: GKState?) {
+        lakeDelightScene.audioInstance.backgroundMusicPlayer?.setVolume(0.0, fadeDuration: 0.5)
+        lakeDelightScene.audioInstance.backgroundMusicPlayer2?.setVolume(0.8, fadeDuration: 0.5)
+        
         lakeDelightScene.startPosition = nil
         lakeDelightScene.currentNode = nil
         print("Puzzle")
@@ -51,6 +54,9 @@ class GameStatePuzzle : GKState {
     
     override func willExit(to nextState: GKState) {
         super.willExit(to: nextState)
+        lakeDelightScene.audioInstance.backgroundMusicPlayer?.setVolume(0.8, fadeDuration: 0.5)
+        lakeDelightScene.audioInstance.backgroundMusicPlayer2?.setVolume(0.0, fadeDuration: 0.5)
+        
         lakeDelightScene.puzzleOverlay?.alpha = 0.0
         lakeDelightScene.puzzleShow = false
         lakeDelightScene.portal?.alpha = 1.0

@@ -30,6 +30,7 @@ class Player: SKSpriteNode {
     private var walkLeftAnimYami: SKAction = SKAction(named: "walkLeftAnim")!
     private var currentDirection = Direction.stop
     private var isIdle: Bool = true
+    let charPhysicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 10, height: 18) ,center: CGPoint(x: 0.0 , y: -4.0))
     
     func move(_ direction: Direction) {
         print("move player: \(direction.rawValue)")

@@ -26,6 +26,7 @@ class GameStateEndCut : GKState {
         lakeDelightScene.menuButton?.alpha = 0.0
         lakeDelightScene.controller?.alpha = 0.0
         lakeDelightScene.interactButton?.alpha = 0.0
+        lakeDelightScene.audioInstance.backgroundMusicPlayer?.setVolume(0.0, fadeDuration: 4.0)
         
     }
     

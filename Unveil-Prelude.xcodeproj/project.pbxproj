@@ -27,6 +27,10 @@
 		5115DA9327BFB2B600549878 /* Controller.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5115DA9227BFB2B600549878 /* Controller.sks */; };
 		51177E9327CD3B27003E2833 /* DialogueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51177E9227CD3B27003E2833 /* DialogueManager.swift */; };
 		51177E9527CD3B7E003E2833 /* Dialogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51177E9427CD3B7E003E2833 /* Dialogue.swift */; };
+		511E95F727D62ABB00F29A31 /* SKTAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511E95F627D62ABB00F29A31 /* SKTAudio.swift */; };
+		511E95FC27D62B7F00F29A31 /* Mysterio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 511E95F927D62B7F00F29A31 /* Mysterio.mp3 */; };
+		511E95FD27D62B7F00F29A31 /* LakeDelightpuzzle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 511E95FA27D62B7F00F29A31 /* LakeDelightpuzzle.mp3 */; };
+		511E95FE27D62B7F00F29A31 /* LakeDelightTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 511E95FB27D62B7F00F29A31 /* LakeDelightTheme.mp3 */; };
 		5135C66A27D16C2900F34002 /* GameStateDialogueEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5135C66927D16C2900F34002 /* GameStateDialogueEvent.swift */; };
 		5135C66C27D16CEC00F34002 /* GameStatePuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5135C66B27D16CEC00F34002 /* GameStatePuzzle.swift */; };
 		514A15CE27C8CA09008C821C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 514A15D027C8CA09008C821C /* Localizable.strings */; };
@@ -67,6 +71,10 @@
 		5115DA9227BFB2B600549878 /* Controller.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Controller.sks; sourceTree = "<group>"; };
 		51177E9227CD3B27003E2833 /* DialogueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueManager.swift; sourceTree = "<group>"; };
 		51177E9427CD3B7E003E2833 /* Dialogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialogue.swift; sourceTree = "<group>"; };
+		511E95F627D62ABB00F29A31 /* SKTAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTAudio.swift; sourceTree = "<group>"; };
+		511E95F927D62B7F00F29A31 /* Mysterio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mysterio.mp3; sourceTree = "<group>"; };
+		511E95FA27D62B7F00F29A31 /* LakeDelightpuzzle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LakeDelightpuzzle.mp3; sourceTree = "<group>"; };
+		511E95FB27D62B7F00F29A31 /* LakeDelightTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LakeDelightTheme.mp3; sourceTree = "<group>"; };
 		5135C66927D16C2900F34002 /* GameStateDialogueEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateDialogueEvent.swift; sourceTree = "<group>"; };
 		5135C66B27D16CEC00F34002 /* GameStatePuzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatePuzzle.swift; sourceTree = "<group>"; };
 		514A15CC27C8C9BC008C821C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
@@ -120,6 +128,7 @@
 		5115DA6427BF7F1C00549878 /* Unveil-Prelude */ = {
 			isa = PBXGroup;
 			children = (
+				511E95F827D62AFD00F29A31 /* Audio */,
 				51A8442827CF75F70031DCF5 /* Base */,
 				51A8442727CF75EA0031DCF5 /* Scenes */,
 				51A8442627CF759C0031DCF5 /* Dialogues */,
@@ -133,6 +142,16 @@
 				51A8442A27CF89A20031DCF5 /* toKeepNotice.md */,
 			);
 			path = "Unveil-Prelude";
+			sourceTree = "<group>";
+		};
+		511E95F827D62AFD00F29A31 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				511E95FA27D62B7F00F29A31 /* LakeDelightpuzzle.mp3 */,
+				511E95FB27D62B7F00F29A31 /* LakeDelightTheme.mp3 */,
+				511E95F927D62B7F00F29A31 /* Mysterio.mp3 */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		5169878A27D4193100E98B78 /* Actions */ = {
@@ -212,6 +231,7 @@
 				5115DA8427BF9A0D00549878 /* Player.swift */,
 				51742F8C27D0C2F4003D929B /* FelicityChar.swift */,
 				51742F8E27D0D623003D929B /* TakeoChar.swift */,
+				511E95F627D62ABB00F29A31 /* SKTAudio.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -290,11 +310,13 @@
 				514A15CE27C8CA09008C821C /* Localizable.strings in Resources */,
 				5199BAA327D5762300CDF347 /* BedroomScene.sks in Resources */,
 				5169878C27D4196C00E98B78 /* Gems.sks in Resources */,
+				511E95FD27D62B7F00F29A31 /* LakeDelightpuzzle.mp3 in Resources */,
 				5115DA8127BF8EC800549878 /* MainMenuScene.sks in Resources */,
 				5115DA9327BFB2B600549878 /* Controller.sks in Resources */,
 				51A8442327CF59260031DCF5 /* VT323-Regular.ttf in Resources */,
 				5115DA7F27BF8DEB00549878 /* DemoLaunchScene.sks in Resources */,
 				5115DA9127BFB29000549878 /* InteractionButton.sks in Resources */,
+				511E95FC27D62B7F00F29A31 /* Mysterio.mp3 in Resources */,
 				5157944327CCEC2A00CC86BC /* MenuScene.sks in Resources */,
 				5167EDD927C7CFFE00000B0E /* DialogueScene.sks in Resources */,
 				5115DA7327BF7F1D00549878 /* Assets.xcassets in Resources */,
@@ -302,6 +324,7 @@
 				5115DA8B27BF9F7B00549878 /* MyTileSet.sks in Resources */,
 				5115DA6A27BF7F1C00549878 /* Actions.sks in Resources */,
 				5115DA8927BF9EED00549878 /* LakeDelightScene.sks in Resources */,
+				511E95FE27D62B7F00F29A31 /* LakeDelightTheme.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5115DA8327BF8F7F00549878 /* MainMenuScene.swift in Sources */,
+				511E95F727D62ABB00F29A31 /* SKTAudio.swift in Sources */,
 				5199BAA527D5774400CDF347 /* BedroomScene.swift in Sources */,
 				51177E9327CD3B27003E2833 /* DialogueManager.swift in Sources */,
 				5115DA8F27BFAA3A00549878 /* SKTileMapNode+Physics.swift in Sources */,

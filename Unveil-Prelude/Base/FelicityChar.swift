@@ -20,6 +20,7 @@ class FelicityChar: SKSpriteNode {
 //    private var walkLeftAnimYami: SKAction = SKAction(named: "walkLeftAnim")!
     private var currentDirection = Direction.stop
     private var isIdle: Bool = true
+    let charPhysicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 10, height: 18) ,center: CGPoint(x: 0.0 , y: -4.0))
     
     func move(_ direction: Direction, posX: CGFloat, posY: CGFloat) {
         
@@ -31,7 +32,7 @@ class FelicityChar: SKSpriteNode {
             self.isIdle = false
             self.run(walkBackAnimFelicity, withKey: "walkBackAnim")
             let moveY = SKAction.moveTo(y: posY, duration: 1.5)
-            let moveX = SKAction.moveTo(x: posX, duration: 1.0)
+            let moveX = SKAction.moveTo(x: posX, duration: 0.5)
             self.run(SKAction.sequence([moveX,moveY,idleAnimFelicity]))
 //
 //            self.run(SKAction.moveTo(x: posX, duration: 1.0))

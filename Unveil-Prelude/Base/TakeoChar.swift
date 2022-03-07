@@ -21,6 +21,7 @@ class TakeoChar: SKSpriteNode {
 //    private var walkLeftAnimYami: SKAction = SKAction(named: "walkLeftAnim")!
     private var currentDirection = Direction.stop
     private var isIdle: Bool = true
+    let charPhysicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 10, height: 18) ,center: CGPoint(x: 0.0 , y: -4.0))
     
     func move(_ direction: Direction, posX: CGFloat, posY: CGFloat) {
         
@@ -31,8 +32,8 @@ class TakeoChar: SKSpriteNode {
             self.removeAllActions()
             self.isIdle = false
             self.run(walkBackAnimTakeo, withKey: "walkBackAnim")
-            let moveY = SKAction.moveTo(y: posY, duration: 2.5)
-            let moveX = SKAction.moveTo(x: posX, duration: 1.0)
+            let moveY = SKAction.moveTo(y: posY, duration: 2.3)
+            let moveX = SKAction.moveTo(x: posX, duration: 0.5)
             self.run(SKAction.sequence([moveX,moveY,idleAnimTakeo]))
 //
 //            self.run(SKAction.moveTo(x: posX, duration: 1.0))
