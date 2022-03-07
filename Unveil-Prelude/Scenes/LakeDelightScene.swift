@@ -217,17 +217,18 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                     
                     felicity?.run(SKAction(named: "FelicityWalkFrontAnim")!)
                     felicity?.run(SKAction.sequence([
-                        SKAction.move(to: CGPoint(x: (player?.position.x)! - 28 , y: (player?.position.y)!), duration: 2.0),
+                        SKAction.move(to: CGPoint(x: 80 - 54 , y: 48 + 8 ), duration: 2.0),
                                                       SKAction(named: "idleFelicity")!
                     ]))
                     
                     takeo?.run(SKAction(named: "TakeoWalkFrontAnim")!)
                     takeo?.run(SKAction.sequence([
-                        SKAction.move(to: CGPoint(x: (player?.position.x)! - 48 , y: (player?.position.y)!), duration: 2.0),
+                        SKAction.move(to: CGPoint(x: 80 - 74  , y: 48 - 20), duration: 2.0),
                                                       SKAction(named: "idleTakeo")!
                     ]))
                     GameStateMachine?.enter(GameStateDialogue.self)
                     puzzleDialogEnabled = false
+                    puzzleShow = true
                 }
             }
             else if (touchedNode as? SKSpriteNode)?.name == "menuButton" {
@@ -415,7 +416,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                 button.alpha = 1.0
                 button.texture = SKTexture.init(imageNamed: "interactiontrue")
                 puzzleDialogEnabled = true
-                puzzleShow = true
+                
             }
                 
             }

@@ -51,5 +51,10 @@
 - Improved Puzzle Logic
 - New Ending and Credit Scene
 - New Audio System
-- Improved Assets
-- 
+- New and improved Assets
+
+# Changelog n6 External 1.0(9)
+-new sound effects
+-improved assets
+-new tile map
+-bug fix
