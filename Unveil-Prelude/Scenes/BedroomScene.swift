@@ -15,6 +15,7 @@ class BedroomScene: SKScene {
     var dialogueOverlay: SKNode?
     var dialogue: Dialogue = Dialogue(speakerName: "Yami Akibara", speakerImg: "1-yami-think", dialogueText: NSLocalizedString("endCut", comment: "woah"))
     var frecciaDialogo: SKSpriteNode?
+    var bedroom: SKSpriteNode?
     
     override func sceneDidLoad() {
         
@@ -34,10 +35,12 @@ class BedroomScene: SKScene {
         if let freccetta = self.frecciaDialogo {
             freccetta.run(SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: 0.0, y: -10.0, duration: 0.5),SKAction.moveBy(x: 0.0, y: 10.0, duration: 0.5)])))
         }
+        
+        bedroom = childNode(withName: "bedroom") as? SKSpriteNode
+        
     }
     
     override func didMove(to view: SKView) {
-        
         
     }
     
@@ -53,7 +56,16 @@ class BedroomScene: SKScene {
     func sceneTouched(touchLocation:CGPoint) {
         
         if dialogueOverlay?.alpha == 0.0 {
-            dialogueOverlay?.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.5)]))
+            if let bedroomSprite = self.bedroom {
+                bedroomSprite.run(SKAction.sequence([
+                    SKAction.run {
+                        self.bedroom?.texture = SKTexture(imageNamed: "stanzaocchiaperti")
+                    } , SKAction.wait(forDuration: 2.0),
+                    SKAction.run {
+                        self.dialogueOverlay?.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.5)]))
+                    }
+                ]))
+            }
         }
         
         else {

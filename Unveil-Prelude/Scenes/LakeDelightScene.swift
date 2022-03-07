@@ -434,7 +434,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                         DialogueManager.questPhase = .start
                         if let nextScene = GKScene(fileNamed: "BedroomScene") {
                             if let nextSceneNode = nextScene.rootNode as! BedroomScene? {
-                                nextSceneNode.scaleMode = .resizeFill
+                                nextSceneNode.scaleMode = .aspectFill
                                 self.view?.presentScene(nextSceneNode, transition: .fade(withDuration: 2.0))
                             }
                         }
