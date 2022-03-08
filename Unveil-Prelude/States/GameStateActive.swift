@@ -30,6 +30,10 @@ class GameStateActive: GKState {
         if lakeDelightScene.popUpShow{
             if let popUp = lakeDelightScene.childNode(withName: "//soulPopUp") {
                 popUp.run(SKAction.sequence([
+                    SKAction.run {
+                        self.lakeDelightScene.audioInstance.playSoundEffect("pop.mp3")
+                        
+                    },
                     SKAction.fadeIn(withDuration: 1.0),
                     SKAction.wait(forDuration: 2.0),
                     SKAction.fadeOut(withDuration: 1.0)

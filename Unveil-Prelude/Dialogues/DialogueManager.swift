@@ -9,7 +9,7 @@ import Foundation
 import GameplayKit
 
 enum QuestPhase: Int, CaseIterable {
-    case start = 0, first, second, third, fourth
+    case start = 0, first, second, third
     
     mutating func next() {
             let allCases = type(of: self).allCases

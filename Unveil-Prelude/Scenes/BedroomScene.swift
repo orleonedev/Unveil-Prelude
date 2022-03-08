@@ -57,6 +57,7 @@ class BedroomScene: SKScene {
     func sceneTouched(touchLocation:CGPoint) {
         
         if !skip {
+            audioInstance.playSoundEffect("dot.mp3")
             if let bedroomSprite = self.bedroom {
                 bedroomSprite.run(SKAction.sequence([
                     SKAction.run {
@@ -81,6 +82,7 @@ class BedroomScene: SKScene {
         }
         
         else {
+            audioInstance.playSoundEffect("dot.mp3")
             if let nextScene = GKScene(fileNamed: "EndingScene") {
                 if let nextSceneNode = nextScene.rootNode as! EndingScene? {
                     nextSceneNode.scaleMode = .aspectFill

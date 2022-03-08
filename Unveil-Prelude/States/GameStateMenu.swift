@@ -36,8 +36,7 @@ class GameStateMenu: GKState {
             lakeDelightScene.questDescription?.text = NSLocalizedString("Quest2Description", comment: "phase2")
         case .third:
             lakeDelightScene.questDescription?.text = NSLocalizedString("Quest3Description", comment: "phase3")
-        case .fourth:
-            lakeDelightScene.questDescription?.text = NSLocalizedString("Quest3Description", comment: "phase3")
+        
 
         }
         

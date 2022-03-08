@@ -17,7 +17,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     var dialogueInstance: Dialogue?
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
-    let audioInstance = SKTAudio.sharedInstance()
+    var audioInstance = SKTAudio.sharedInstance()
     
     private var lastUpdateTime : TimeInterval = 0
     private var player: Player?
@@ -47,6 +47,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     
     var puzzleDialogEnabled: Bool = false
     var puzzleShow: Bool = false
+    var cutScene: Bool = false
     var currentNode: SKSpriteNode?
     var startPosition: CGPoint?
     var gemmaRossa1: SKSpriteNode?
@@ -63,7 +64,6 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
-        
         
         GameStateMachine = GKStateMachine(states: [GameStateActive(scene: self),GameStateDialogue(scene: self),GameStateMenu(scene: self),GameStatePuzzle(scene: self), GameStateDialogueEvent(scene: self), GameStateEndCut(scene: self)])
         GameStateMachine?.enter(GameStateActive.self)
@@ -215,6 +215,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
             else if (touchedNode as? SKSpriteNode)?.name == "interact_button" {
                 if puzzleDialogEnabled {
                     player?.interact()
+                    audioInstance.playSoundEffect("dot.mp3")
                     
                     felicity?.run(SKAction(named: "FelicityWalkFrontAnim")!)
                     felicity?.run(SKAction.sequence([
@@ -233,14 +234,17 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
             else if (touchedNode as? SKSpriteNode)?.name == "menuButton" {
+                audioInstance.playSoundEffect("dot.mp3")
                 GameStateMachine?.enter(GameStateMenu.self)
             }
             else if (touchedNode as? SKSpriteNode)?.name == "closeButton" {
+                audioInstance.playSoundEffect("dot.mp3")
                 GameStateMachine?.enter(GameStateActive.self)
             }
             
             else if (
                 (touchedNode as? SKSpriteNode)?.name == "DialogueBox" || (touchedNode as? SKLabelNode)?.name == "DialogueText" || (touchedNode as? SKSpriteNode)?.name == "frecciaDialogo" || (touchedNode as? SKSpriteNode)?.name == "SpeakerBox" || (touchedNode as? SKLabelNode)?.name == "SpeakerName") {
+                audioInstance.playSoundEffect("dot.mp3")
                 
                 if let nextDialogue = scriptInstance?.getNextDialogue()  {
                     scriptInstance?.currentIndex += 1
@@ -423,7 +427,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         else if eventNode.name == "event4" {
-            if DialogueManager.questPhase == .fourth {
+            if cutScene {
                 GameStateMachine?.enter(GameStateEndCut.self)
                 eventMapNode4?.removeFromParent()
                 lakeMapNode?.removeAllChildren()
@@ -431,8 +435,13 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                 player?.run(SKAction.sequence([
                     SKAction.move(to: CGPoint(x: -32, y: 100), duration: 1.0),
                     SKAction.run({self.player?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)}) ,
+                    SKAction.run {
+                        self.audioInstance.playSoundEffect2("noise.mp3")
+                        self.audioInstance.soundEffectPlayer2?.setVolume(0.03, fadeDuration: 5.0)
+                    },
                     SKAction(named: "yamiFinal")!,
                     SKAction.run {
+                        self.cutScene = false
                         DialogueManager.questPhase = .start
                         if let nextScene = GKScene(fileNamed: "BedroomScene") {
                             if let nextSceneNode = nextScene.rootNode as! BedroomScene? {

@@ -17,6 +17,7 @@ class DemoLaunchScene: SKScene {
     private var dragonflies: SKLabelNode?
     private var special: SKLabelNode?
     private var bgNode: SKSpriteNode?
+    let audioInstance = SKTAudio.sharedInstance()
     
     override func sceneDidLoad() {
         

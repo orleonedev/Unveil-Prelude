@@ -35,8 +35,7 @@ class GameStateDialogueEvent: GKState {
             lakeDelightScene.dialogueInstance = uponBottomMarginDialogue2
         case .third:
             lakeDelightScene.dialogueInstance = uponBottomMarginDialogue3
-        case .fourth:
-            lakeDelightScene.dialogueInstance = uponBottomMarginDialogue3
+        
         }
         lakeDelightScene.updateDialogue()
         }
