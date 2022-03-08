@@ -57,13 +57,7 @@ class GameStatePuzzle : GKState {
         lakeDelightScene.audioInstance.backgroundMusicPlayer?.setVolume(0.8, fadeDuration: 0.5)
         lakeDelightScene.audioInstance.backgroundMusicPlayer2?.setVolume(0.0, fadeDuration: 0.5)
         
-        if let popUp = lakeDelightScene.childNode(withName: "//SoulPopUp") {
-            popUp.run(SKAction.sequence([
-                SKAction.fadeIn(withDuration: 1.0),
-                SKAction.wait(forDuration: 2.0),
-                SKAction.fadeOut(withDuration: 1.0)
-            ]))
-        }
+        lakeDelightScene.popUpShow = true
         
         lakeDelightScene.puzzleOverlay?.alpha = 0.0
         lakeDelightScene.puzzleShow = false

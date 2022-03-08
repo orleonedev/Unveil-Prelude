@@ -26,6 +26,17 @@ class GameStateActive: GKState {
         lakeDelightScene.menuButton?.alpha = 1.0
         lakeDelightScene.interactButton?.alpha = 1.0
         lakeDelightScene.controller?.alpha = 1.0
+        
+        if lakeDelightScene.popUpShow{
+            if let popUp = lakeDelightScene.childNode(withName: "//soulPopUp") {
+                popUp.run(SKAction.sequence([
+                    SKAction.fadeIn(withDuration: 1.0),
+                    SKAction.wait(forDuration: 2.0),
+                    SKAction.fadeOut(withDuration: 1.0)
+                ]))
+            }
+            lakeDelightScene.popUpShow = false
+        }
     }
     
     override func willExit(to nextState: GKState) {

@@ -59,6 +59,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     var gemmaViola2: SKSpriteNode?
     var gemmaViola3: SKSpriteNode?
     var portal: SKSpriteNode?
+    var popUpShow: Bool = false
     
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
@@ -381,6 +382,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
     
     override func didFinishUpdate() {
         updateControllerLocation()
+        
     }
     
     func updateControllerLocation() {
