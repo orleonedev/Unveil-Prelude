@@ -26,6 +26,28 @@
 - Imported a custom font licensed under the Open Font License
 
 
+# Changelog 1.0(9)
+-new sound effects
+-improved assets
+-new tile maps
+-bug fix
+- overall improvings
+
+#ChangeLog 1.0(8)
+- Improved Physics and hit boxes
+- Improved Puzzle Logic
+- New Ending and Credit Scene
+- New Audio System
+- New and improved Assets
+
+#ChangeLog 1.0(7)
+- Improved App Icon
+- Improved Game State Machine
+- Improved Objects Physics
+- Added Puzzle State and Puzzle Logic
+- New and Improved assets
+- New localized dialogues
+
 # ChangeLog 1.0(6)
 
 - New App Icon
@@ -36,27 +58,3 @@
 - Imported new localized dialogues 
 - Secondary characters now showing on the scene
 - Improved animation for character sprites
-
-#ChangeLog 1.0(7)
-- Improved App Icon
-- Improved Game State Machine
-- Improved Objects Physics
-- Added Puzzle State and Puzzle Logic
-- New and Improved assets
-- New localized dialogues
-
-
-#ChangeLog 1.0(8)
-- Improved Physics and hit boxes
-- Improved Puzzle Logic
-- New Ending and Credit Scene
-- New Audio System
-- New and improved Assets
-
-# Changelog 1.0(9)
--new sound effects
--improved assets
--new tile maps
--bug fix
-- overall improvings
-

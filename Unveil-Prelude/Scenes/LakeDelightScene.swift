@@ -437,7 +437,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                     SKAction.run({self.player?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)}) ,
                     SKAction.run {
                         self.audioInstance.playSoundEffect2("noise.mp3")
-                        self.audioInstance.soundEffectPlayer2?.setVolume(0.03, fadeDuration: 5.0)
+                        self.audioInstance.soundEffectPlayer2?.setVolume(0.1, fadeDuration: 5.0)
                     },
                     SKAction(named: "yamiFinal")!,
                     SKAction.run {

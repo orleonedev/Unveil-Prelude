@@ -34,12 +34,12 @@
 		511E960027D6651F00F29A31 /* EndingScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 511E95FF27D6651F00F29A31 /* EndingScene.sks */; };
 		511E960227D666A400F29A31 /* EndingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511E960127D666A400F29A31 /* EndingScene.swift */; };
 		511E960427D7707B00F29A31 /* PopUpScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 511E960327D7707B00F29A31 /* PopUpScene.sks */; };
-		511E960627D7A0E800F29A31 /* dot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 511E960527D7A0E800F29A31 /* dot.mp3 */; };
 		511E960827D7A7A800F29A31 /* pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 511E960727D7A7A800F29A31 /* pop.mp3 */; };
 		511E960A27D7B59D00F29A31 /* noise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 511E960927D7B59D00F29A31 /* noise.mp3 */; };
 		5135C66A27D16C2900F34002 /* GameStateDialogueEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5135C66927D16C2900F34002 /* GameStateDialogueEvent.swift */; };
 		5135C66C27D16CEC00F34002 /* GameStatePuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5135C66B27D16CEC00F34002 /* GameStatePuzzle.swift */; };
 		514A15CE27C8CA09008C821C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 514A15D027C8CA09008C821C /* Localizable.strings */; };
+		5152D59927D7E84000639242 /* dot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5152D59827D7E84000639242 /* dot.mp3 */; };
 		5157944327CCEC2A00CC86BC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5157944227CCEC2A00CC86BC /* MenuScene.sks */; };
 		5167EDD927C7CFFE00000B0E /* DialogueScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5167EDD827C7CFFE00000B0E /* DialogueScene.sks */; };
 		5169878927D3D36800E98B78 /* PuzzleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5169878827D3D36800E98B78 /* PuzzleScene.sks */; };
@@ -84,7 +84,6 @@
 		511E95FF27D6651F00F29A31 /* EndingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndingScene.sks; sourceTree = "<group>"; };
 		511E960127D666A400F29A31 /* EndingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingScene.swift; sourceTree = "<group>"; };
 		511E960327D7707B00F29A31 /* PopUpScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PopUpScene.sks; sourceTree = "<group>"; };
-		511E960527D7A0E800F29A31 /* dot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dot.mp3; sourceTree = "<group>"; };
 		511E960727D7A7A800F29A31 /* pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pop.mp3; sourceTree = "<group>"; };
 		511E960927D7B59D00F29A31 /* noise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = noise.mp3; sourceTree = "<group>"; };
 		5135C66927D16C2900F34002 /* GameStateDialogueEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateDialogueEvent.swift; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		514A15CD27C8C9BC008C821C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		514A15CF27C8CA09008C821C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		514A15D127C8CA16008C821C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5152D59827D7E84000639242 /* dot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dot.mp3; sourceTree = "<group>"; };
 		5157944227CCEC2A00CC86BC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		5167EDD827C7CFFE00000B0E /* DialogueScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DialogueScene.sks; sourceTree = "<group>"; };
 		5169878827D3D36800E98B78 /* PuzzleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PuzzleScene.sks; sourceTree = "<group>"; };
@@ -161,8 +161,8 @@
 			children = (
 				511E95FA27D62B7F00F29A31 /* LakeDelightpuzzle.mp3 */,
 				511E95FB27D62B7F00F29A31 /* LakeDelightTheme.mp3 */,
-				511E960527D7A0E800F29A31 /* dot.mp3 */,
 				511E960927D7B59D00F29A31 /* noise.mp3 */,
+				5152D59827D7E84000639242 /* dot.mp3 */,
 				511E95F927D62B7F00F29A31 /* Mysterio.mp3 */,
 				511E960727D7A7A800F29A31 /* pop.mp3 */,
 			);
@@ -331,9 +331,9 @@
 				5169878C27D4196C00E98B78 /* Gems.sks in Resources */,
 				511E95FD27D62B7F00F29A31 /* LakeDelightpuzzle.mp3 in Resources */,
 				5115DA8127BF8EC800549878 /* MainMenuScene.sks in Resources */,
+				5152D59927D7E84000639242 /* dot.mp3 in Resources */,
 				511E960A27D7B59D00F29A31 /* noise.mp3 in Resources */,
 				5115DA9327BFB2B600549878 /* Controller.sks in Resources */,
-				511E960627D7A0E800F29A31 /* dot.mp3 in Resources */,
 				51A8442327CF59260031DCF5 /* VT323-Regular.ttf in Resources */,
 				5115DA7F27BF8DEB00549878 /* DemoLaunchScene.sks in Resources */,
 				511E960827D7A7A800F29A31 /* pop.mp3 in Resources */,
