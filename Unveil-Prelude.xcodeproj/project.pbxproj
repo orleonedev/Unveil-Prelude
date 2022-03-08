@@ -33,6 +33,7 @@
 		511E95FE27D62B7F00F29A31 /* LakeDelightTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 511E95FB27D62B7F00F29A31 /* LakeDelightTheme.mp3 */; };
 		511E960027D6651F00F29A31 /* EndingScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 511E95FF27D6651F00F29A31 /* EndingScene.sks */; };
 		511E960227D666A400F29A31 /* EndingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511E960127D666A400F29A31 /* EndingScene.swift */; };
+		511E960427D7707B00F29A31 /* PopUpScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 511E960327D7707B00F29A31 /* PopUpScene.sks */; };
 		5135C66A27D16C2900F34002 /* GameStateDialogueEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5135C66927D16C2900F34002 /* GameStateDialogueEvent.swift */; };
 		5135C66C27D16CEC00F34002 /* GameStatePuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5135C66B27D16CEC00F34002 /* GameStatePuzzle.swift */; };
 		514A15CE27C8CA09008C821C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 514A15D027C8CA09008C821C /* Localizable.strings */; };
@@ -79,6 +80,7 @@
 		511E95FB27D62B7F00F29A31 /* LakeDelightTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LakeDelightTheme.mp3; sourceTree = "<group>"; };
 		511E95FF27D6651F00F29A31 /* EndingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndingScene.sks; sourceTree = "<group>"; };
 		511E960127D666A400F29A31 /* EndingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingScene.swift; sourceTree = "<group>"; };
+		511E960327D7707B00F29A31 /* PopUpScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PopUpScene.sks; sourceTree = "<group>"; };
 		5135C66927D16C2900F34002 /* GameStateDialogueEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateDialogueEvent.swift; sourceTree = "<group>"; };
 		5135C66B27D16CEC00F34002 /* GameStatePuzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatePuzzle.swift; sourceTree = "<group>"; };
 		514A15CC27C8C9BC008C821C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				5167EDD827C7CFFE00000B0E /* DialogueScene.sks */,
 				5157944227CCEC2A00CC86BC /* MenuScene.sks */,
 				5169878827D3D36800E98B78 /* PuzzleScene.sks */,
+				511E960327D7707B00F29A31 /* PopUpScene.sks */,
 			);
 			path = Overlays;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				5167EDD927C7CFFE00000B0E /* DialogueScene.sks in Resources */,
 				5115DA7327BF7F1D00549878 /* Assets.xcassets in Resources */,
 				5115DA7627BF7F1D00549878 /* LaunchScreen.storyboard in Resources */,
+				511E960427D7707B00F29A31 /* PopUpScene.sks in Resources */,
 				5115DA8B27BF9F7B00549878 /* MyTileSet.sks in Resources */,
 				5115DA6A27BF7F1C00549878 /* Actions.sks in Resources */,
 				5115DA8927BF9EED00549878 /* LakeDelightScene.sks in Resources */,

@@ -15,7 +15,7 @@
 - mettere un qualcosa vicino le sponde del lago può portare la gente ad andare verso quella posizione, cosi sappiamo dove andrà a triggerare il dialogo = posizione decente di takeo e felicity
 
 
-# ChangeLog n.2 External 1.0(5)
+# ChangeLog 1.0(5)
 
 
 - Improved Game State Machine
@@ -26,7 +26,7 @@
 - Imported a custom font licensed under the Open Font License
 
 
-# ChangeLog n3 External 1.0(6)
+# ChangeLog 1.0(6)
 
 - New App Icon
 - Improved Game State Machine
@@ -37,7 +37,7 @@
 - Secondary characters now showing on the scene
 - Improved animation for character sprites
 
-#ChangeLog n4 External 1.0(7)
+#ChangeLog 1.0(7)
 - Improved App Icon
 - Improved Game State Machine
 - Improved Objects Physics
@@ -46,15 +46,17 @@
 - New localized dialogues
 
 
-#ChangeLog n5 External 1.0(8)
+#ChangeLog 1.0(8)
 - Improved Physics and hit boxes
 - Improved Puzzle Logic
 - New Ending and Credit Scene
 - New Audio System
 - New and improved Assets
 
-# Changelog n6 External 1.0(9)
+# Changelog 1.0(9)
 -new sound effects
 -improved assets
--new tile map
+-new tile maps
 -bug fix
+- overall improvings
+

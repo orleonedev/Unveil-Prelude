@@ -13,6 +13,7 @@ class BedroomScene: SKScene {
     
     var audioInstance = SKTAudio.sharedInstance()
     var dialogueOverlay: SKNode?
+    var skip: Bool = false
     var dialogue: Dialogue = Dialogue(speakerName: "Yami Akibara", speakerImg: "1-yami-think", dialogueText: NSLocalizedString("endCut", comment: "woah"))
     var frecciaDialogo: SKSpriteNode?
     var bedroom: SKSpriteNode?
@@ -23,13 +24,13 @@ class BedroomScene: SKScene {
         dialogueOverlay = childNode(withName: "//dialogueNode")
         
         if let speakerName = childNode(withName: "//SpeakerName") as? SKLabelNode {
-            speakerName.text = dialogue.speakerName
+            speakerName.text = ""
         }
         if let dialogueText = childNode(withName: "//DialogueText") as? SKLabelNode {
-            dialogueText.text = dialogue.dialogueText
+            dialogueText.text = "..."
         }
         if let image = childNode(withName: "//SpeakerSprite") as? SKSpriteNode {
-            image.texture = SKTexture.init(imageNamed: dialogue.speakerImg )
+            image.texture = SKTexture.init(imageNamed: "transparent" )
         }
         self.frecciaDialogo = childNode(withName: "//frecciaDialogo") as? SKSpriteNode
         if let freccetta = self.frecciaDialogo {
@@ -55,17 +56,28 @@ class BedroomScene: SKScene {
     
     func sceneTouched(touchLocation:CGPoint) {
         
-        if dialogueOverlay?.alpha == 0.0 {
+        if !skip {
             if let bedroomSprite = self.bedroom {
                 bedroomSprite.run(SKAction.sequence([
                     SKAction.run {
+                        self.dialogueOverlay?.run(SKAction.fadeOut(withDuration: 0.5))
                         self.bedroom?.texture = SKTexture(imageNamed: "stanzaocchiaperti")
-                    } , SKAction.wait(forDuration: 2.0),
+                    } , SKAction.wait(forDuration: 1.0),
                     SKAction.run {
                         self.dialogueOverlay?.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.5)]))
+                        if let speakerName = self.childNode(withName: "//SpeakerName") as? SKLabelNode {
+                            speakerName.text = self.dialogue.speakerName
+                        }
+                        if let dialogueText = self.childNode(withName: "//DialogueText") as? SKLabelNode {
+                            dialogueText.text = self.dialogue.dialogueText
+                        }
+                        if let image = self.childNode(withName: "//SpeakerSprite") as? SKSpriteNode {
+                            image.texture = SKTexture.init(imageNamed: self.dialogue.speakerImg )
+                        }
                     }
                 ]))
             }
+            skip = true
         }
         
         else {

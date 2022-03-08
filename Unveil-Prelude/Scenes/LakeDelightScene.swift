@@ -239,7 +239,7 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
             }
             
             else if (
-                (touchedNode as? SKShapeNode)?.name == "DialogueBox" || (touchedNode as? SKLabelNode)?.name == "DialogueText") {
+                (touchedNode as? SKSpriteNode)?.name == "DialogueBox" || (touchedNode as? SKLabelNode)?.name == "DialogueText" || (touchedNode as? SKSpriteNode)?.name == "frecciaDialogo" || (touchedNode as? SKSpriteNode)?.name == "SpeakerBox" || (touchedNode as? SKLabelNode)?.name == "SpeakerName") {
                 
                 if let nextDialogue = scriptInstance?.getNextDialogue()  {
                     scriptInstance?.currentIndex += 1
@@ -291,7 +291,6 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
                         self.currentNode = touchedNode
                         self.currentNode?.zPosition = 100
                         self.startPosition = currentNode?.position
-                        
                     }
                 }
             }
@@ -571,7 +570,13 @@ class LakeDelightScene: SKScene, SKPhysicsContactDelegate {
         {
 //          Cosa fare quando il puzzle è risolto
             print("risolto")
-            GameStateMachine?.enter(GameStateDialogue.self)
+            
+            if let compBlur = childNode(withName: "//CompBlur"){
+                compBlur.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.8), SKAction.wait(forDuration: 2.0), SKAction.fadeOut(withDuration: 0.8) ,SKAction.run {
+                    self.GameStateMachine?.enter(GameStateDialogue.self)
+                }]))
+                
+            }
         }
         
     }
